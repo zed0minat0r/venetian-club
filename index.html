@@ -111,10 +111,11 @@ section{padding:5.5rem 0}
 .hero{position:relative;height:min(92vh,860px);min-height:560px;overflow:hidden;background:var(--black);color:var(--cream)}
 .hero .ph-slide{position:absolute;inset:0;background-size:cover;background-position:center 40%;opacity:0;transition:opacity 2.2s ease}
 .hero .ph-slide.on{opacity:1}
-.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,.35),rgba(20,19,18,.25) 45%,rgba(20,19,18,.72))}
+.hero .shade{position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 55%,rgba(20,19,18,.45),transparent 70%),linear-gradient(180deg,rgba(20,19,18,.35),rgba(20,19,18,.3) 45%,rgba(20,19,18,.75))}
 .hero .in{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.2rem;padding:2rem}
-.hero .in img{width:clamp(120px,16vw,170px);filter:drop-shadow(0 16px 30px rgba(0,0,0,.5))}
-.hero h1{font-weight:400;letter-spacing:.14em;text-transform:uppercase;font-size:clamp(1.6rem,4.6vw,3rem)}
+.hero .in img{width:clamp(110px,14vw,150px);filter:drop-shadow(0 16px 30px rgba(0,0,0,.5))}
+.hero h1{font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:clamp(2.5rem,8vw,5.6rem);line-height:1;text-shadow:0 4px 30px rgba(0,0,0,.65),0 1px 2px rgba(0,0,0,.6);max-width:12ch}
+.hero .rule{width:72px;height:2px;background:var(--gold);margin:.2rem 0}
 .hero .caps{color:rgba(245,241,232,.8)}
 .hero .cta{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:.6rem}
 .hero .dots{position:absolute;bottom:1.4rem;left:0;right:0;display:flex;justify-content:center;gap:.6rem}
@@ -142,7 +143,7 @@ section{padding:5.5rem 0}
   .steps{display:flex;gap:.9rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:1.25rem;scrollbar-width:none;padding:0 1.25rem .4rem;margin:0 -1.25rem}
   .steps::-webkit-scrollbar{display:none}
   .steps div{flex:0 0 74%;scroll-snap-align:start;border:1px solid var(--line);padding:1.2rem 1rem}
-  .planner{padding:1.2rem;margin-top:2rem}
+  .planner{padding:1.6rem 1.25rem;margin-top:2.4rem}
   .planner .cta-row .btn{flex:1 1 100%}
   .hero .cta{flex-direction:column;align-items:stretch;width:min(300px,100%)}
   .list div{grid-template-columns:70px 1fr;gap:.8rem}
@@ -171,19 +172,26 @@ section{padding:5.5rem 0}
 .pay{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;align-items:center;margin-top:.4rem}
 .pay small{color:var(--muted);width:100%;text-align:center}
 
-/* planner, restrained: one hairline box */
-.planner{margin-top:3rem;border:1px solid var(--line);display:grid;gap:1.5rem;padding:1.6rem;background:#fff}
-@media(min-width:900px){.planner{grid-template-columns:1fr 1.1fr;padding:2.2rem}}
-.planner h3{font-size:1.9rem}
-.planner .out{font-family:var(--display);font-size:1.3rem;line-height:1.35;min-height:3em}
-.planner .out b{font-weight:600}
-input[type=range]{width:100%;accent-color:var(--ink);margin:.6rem 0;height:32px}
-.guests{font-family:var(--display);font-size:3.6rem;line-height:1;font-weight:400}
-.guests small{font-size:.74rem;font-family:var(--body);color:var(--muted);margin-left:.5rem;letter-spacing:.18em;text-transform:uppercase}
-.styles{display:flex;flex-wrap:wrap;gap:.4rem}
-.styles button{border:1px solid var(--line);background:#fff;padding:.5rem .8rem;font:inherit;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:var(--ink-2)}
-.styles button.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-.floor{border:1px solid var(--line);aspect-ratio:4/3;position:relative;overflow:hidden;background:#fff}
+/* planner: its own black panel, centred, the one tool on the page */
+.planner{margin:3.5rem auto 0;max-width:1000px;background:var(--black);color:var(--cream);display:grid;gap:1.6rem;padding:2rem 1.5rem;text-align:center}
+@media(min-width:900px){.planner{grid-template-columns:1fr 1fr;padding:3rem;align-items:center}}
+.planner > div:first-child{display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.planner .caps{color:var(--gold)}
+.planner h3{font-size:2.1rem;color:var(--cream)}
+.planner .out{font-family:var(--display);font-size:1.3rem;line-height:1.35;min-height:3em;color:rgba(245,241,232,.85);max-width:38ch}
+.planner .out b{font-weight:600;color:var(--cream)}
+input[type=range]{width:100%;max-width:360px;accent-color:var(--gold);margin:.4rem 0;height:32px}
+.guests{font-family:var(--display);font-size:4rem;line-height:1;font-weight:400;color:var(--cream)}
+.guests small{font-size:.74rem;font-family:var(--body);color:rgba(245,241,232,.6);margin-left:.5rem;letter-spacing:.18em;text-transform:uppercase}
+.styles{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
+.styles button{border:1px solid rgba(245,241,232,.35);background:transparent;padding:.5rem .8rem;font:inherit;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:rgba(245,241,232,.8)}
+.styles button.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.planner .cta-row{justify-content:center}
+.planner .btn.solid{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.planner .btn.solid:hover{background:#d0b06a}
+.planner .btn:not(.solid){border-color:rgba(245,241,232,.5);color:var(--cream)}
+.planner .btn:not(.solid):hover{background:var(--cream);color:var(--ink)}
+.floor{border:1px solid rgba(245,241,232,.25);aspect-ratio:4/3;position:relative;overflow:hidden;background:#fff}
 .floor svg{width:100%;height:100%;display:block}
 .floor .lbl{position:absolute;left:.8rem;top:.6rem;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500}
 .floor .cnt{position:absolute;right:.8rem;bottom:.6rem;font-family:var(--display);font-size:1.05rem;color:var(--ink-2)}
@@ -297,7 +305,8 @@ footer .fine{border-top:1px solid var(--line-dark);width:100%;padding-top:1.4rem
   <div class="in">
     <img src="img/logo.png" alt="Venetian Social Club" width="170" height="170">
     <h1>Venetian Social Club</h1>
-    <p class="caps">Chestnut Hill · Philadelphia · Since 1924</p>
+    <span class="rule"></span>
+    <p class="caps" style="font-size:.82rem">Chestnut Hill · Philadelphia · Since 1924</p>
     <div class="cta"><a class="btn light" href="#rooms">Host an event</a><a class="btn light" href="#membership">Membership</a></div>
   </div>
   <div class="dots" id="hdots"></div>
@@ -345,10 +354,10 @@ footer .fine{border-top:1px solid var(--line-dark);width:100%;padding-top:1.4rem
     <div class="planner reveal" id="planner">
       <div>
         <p class="caps gold">Plan your event</p>
-        <h3 style="margin:.4rem 0 1rem">How many guests?</h3>
+        <h3 style="margin:.2rem 0 .6rem">How many guests?</h3>
         <div class="guests"><span id="gnum">120</span><small>guests</small></div>
         <input type="range" id="grange" min="10" max="175" value="120" step="5" aria-label="Guest count">
-        <p class="caps" style="margin:.8rem 0 .5rem;color:var(--muted)">Seating</p>
+        <p class="caps" style="margin:.8rem 0 .5rem">Seating</p>
         <div class="styles" id="styles"><button class="on" data-s="rounds">Round tables</button><button data-s="banquet">Long tables</button><button data-s="theater">Theater</button><button data-s="cocktail">Cocktail</button></div>
         <p class="out" id="out" style="margin:1rem 0"></p>
         <div class="cta-row"><a class="btn solid" href="#contact">Request this date</a><a class="btn" href="tel:+12152479858">(215) 247-9858</a></div>
