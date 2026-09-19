@@ -68,9 +68,9 @@ em{font-style:italic;font-weight:500}
 .btn.seal:hover{background:var(--red-2);border-color:var(--red-2);color:#FFF6EA}
 .btn.gold{background:var(--gold);border-color:var(--gold);color:#1C1A17}
 .btn.gold:hover{background:var(--gold-2);border-color:var(--gold-2);color:#fff}
-.chapter{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.2rem}
+.chapter{display:flex;flex-direction:column;align-items:center;gap:.3rem;margin-bottom:1.2rem;text-align:center}
 .chapter .num{font-family:var(--display);font-size:clamp(3rem,8vw,4.6rem);line-height:1;color:var(--gold);font-weight:400}
-.chapter .num::after{content:"";display:block;height:2px;background:var(--gold);width:100%;margin-top:.2rem}
+.chapter .num::after{content:"";display:block;height:2px;background:var(--gold);width:60px;margin:.3rem auto 0}
 .chapter .lbl{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .hr{height:1px;background:var(--line-2);margin:0}
 .paper{background:var(--paper);border:1px solid var(--line);box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 24px 60px -30px rgba(28,26,23,.25)}
@@ -79,27 +79,31 @@ em{font-style:italic;font-weight:500}
 .ticker span::before{content:"✦";color:var(--gold);margin-right:3rem}
 @keyframes tick{to{transform:translateX(-50%)}}
 
-/* ═══ SPLASH: the building, full screen, a slow push in. The logo and one button. Nothing else. ═══ */
-.splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1.5rem;background:#0E0B09;overflow:hidden;transition:opacity .8s ease,visibility .8s}
+/* ═══ SPLASH: their logo, a ring of gold that draws itself, the newsletter. ═══ */
+.splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1.5rem;background:var(--plaster);transition:opacity .8s ease,visibility .8s}
+.splash::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 35%,rgba(184,137,43,.18),transparent 65%),radial-gradient(40% 30% at 50% 100%,rgba(158,27,34,.12),transparent 60%)}
 .splash.gone{opacity:0;visibility:hidden}
-.splash .bg{position:absolute;inset:0;background-size:cover;background-position:50% 45%;animation:kb 18s ease-out both}
-.splash .bg.b{background-position:50% 50%;opacity:0;animation:kb 18s 8s ease-out both,xfade 2s 8s ease both}
-@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1.18)}}
-@keyframes xfade{to{opacity:1}}
-.splash .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,11,9,.25) 0%,rgba(14,11,9,.15) 40%,rgba(14,11,9,.82) 100%)}
-.splash-in{position:relative;width:min(560px,100%);text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.4rem;padding-bottom:6vh}
-.splash-logo{width:clamp(170px,44vw,250px);aspect-ratio:1;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6));animation:pop 1.2s .3s cubic-bezier(.2,.8,.2,1) both}
-@keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
-.splash .actions{display:flex;flex-direction:column;align-items:center;gap:1rem;animation:pop 1s .9s both;width:100%}
-.splash .btn.seal{min-width:240px;font-size:1.05rem}
+.splash-in{position:relative;width:min(600px,100%);text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.seal-wrap{position:relative;width:clamp(210px,54vw,300px);aspect-ratio:1;display:grid;place-items:center}
+.seal-wrap svg{position:absolute;inset:-10%;width:120%;height:120%}
+.seal-wrap circle{fill:none;stroke:var(--gold);stroke-width:1.2}
+.seal-wrap .draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.2s .2s cubic-bezier(.4,0,.2,1) forwards}
+.seal-wrap .ticks{stroke-dasharray:1 9;stroke-width:6;opacity:0;animation:fade 1s 1.6s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:.6}}
+.seal-wrap img{width:82%;filter:drop-shadow(0 24px 40px rgba(28,26,23,.3));opacity:0;transform:scale(.92);animation:pop 1s .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+.splash h1{font-size:clamp(2.2rem,8vw,3.8rem);animation:rise 1s 1.4s both}
+.splash .roman{font-family:var(--display);font-size:1.1rem;letter-spacing:.3em;color:var(--gold-2);animation:rise 1s 1.5s both}
+.splash .lead{font-size:1rem;animation:rise 1s 1.6s both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .news-form{display:flex;gap:.5rem;width:100%;max-width:470px;flex-wrap:wrap;justify-content:center}
-.splash .news-form{display:none}
-.splash .news-form.open{display:flex}
+.splash .news-form{animation:rise 1s 1.75s both}
 .news-form input{flex:1 1 210px;min-height:var(--tap);border-radius:4px;border:1.5px solid var(--line-2);background:var(--paper);color:var(--ink);padding:0 1.1rem;font:inherit;font-size:1rem;outline:none}
 .news-form input:focus{border-color:var(--gold)}
-.skip{color:rgba(251,246,236,.75);font-size:.9rem;text-decoration:none;border-bottom:1px solid rgba(251,246,236,.35);padding-bottom:2px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
-.skip:hover{color:#fff}
-.thanks{color:#E9CF8B;font-weight:600;min-height:1.4em;font-family:var(--display);font-size:1.15rem}
+.skip{color:var(--muted);font-size:.92rem;text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:2px;animation:rise 1s 1.9s both}
+.skip:hover{color:var(--ink)}
+.thanks{color:var(--red);font-weight:600;min-height:1.4em;font-family:var(--display);font-size:1.15rem}
 
 /* ═══ NAV ═══ */
 .nav{position:sticky;top:0;z-index:50;background:rgba(243,235,221,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-2)}
@@ -112,41 +116,40 @@ em{font-style:italic;font-weight:500}
 .nav .btn{min-height:42px;padding:0 1rem;font-size:.9rem}
 @media(min-width:960px){.nav-links{display:flex}}
 
-/* ═══ HERO ═══ */
-.hero{position:relative;padding:3.2rem 0 2.5rem;overflow:hidden}
-.hero .wm{position:absolute;right:-2vw;top:-1rem;font-family:var(--display);font-size:clamp(9rem,30vw,24rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(184,137,43,.35);pointer-events:none;user-select:none;letter-spacing:-.04em}
-.hero-grid{display:grid;gap:2rem;position:relative}
-.hero-copy{display:flex;flex-direction:column;gap:1.3rem}
+/* ═══ HERO: one centered column. Matt on the first cut: "the 4 stat box and the fact that nothing is centered". ═══ */
+.hero{padding:3.5rem 0 3rem}
+.hero-in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.4rem}
+.hero h1{max-width:14ch}
 .hero h1 em{color:var(--red)}
-.cta-row{display:flex;flex-wrap:wrap;gap:.7rem}
-.arch{position:relative;border-radius:999px 999px 8px 8px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 40px 80px -30px rgba(28,26,23,.5);border:6px solid var(--paper);outline:1px solid var(--line-2);margin:0}
-.arch img{width:100%;height:100%!important;object-fit:cover;object-position:50% 40%;transform:scale(1.02);animation:slow 30s linear infinite alternate}
-@keyframes slow{to{transform:scale(1.1)}}
-.arch .cap{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.2rem;background:linear-gradient(transparent,rgba(28,26,23,.75));color:#FBF6EC;display:flex;justify-content:space-between;align-items:end;font-family:var(--display)}
-.arch .cap b{font-size:1.4rem;font-weight:600}.arch .cap span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-family:var(--body);color:#E9CF8B}
-.facts{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line-2);background:var(--paper)}
-.facts div{padding:1rem 1.1rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.facts b{display:block;font-family:var(--display);font-size:2.2rem;line-height:1;color:var(--red);font-weight:500}
-.facts span{font-size:.8rem;color:var(--muted)}
-@media(min-width:960px){.hero{padding:4.5rem 0 3.5rem}.hero-grid{grid-template-columns:1.15fr .85fr;align-items:center}.facts{grid-template-columns:repeat(4,1fr)}.facts div{border-bottom:0}.facts div:last-child{border-right:0}}
+.hero .lead{max-width:62ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+.hero-photo{margin:1.4rem 0 0;width:100%;max-width:960px;border:8px solid var(--paper);outline:1px solid var(--line-2);box-shadow:0 40px 80px -30px rgba(28,26,23,.45);overflow:hidden}
+.hero-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:50% 40%;height:auto!important}
+.hero-photo figcaption{font-family:var(--display);font-style:italic;color:var(--muted);padding:.7rem 0 .2rem;font-size:1.05rem;background:var(--paper)}
+@media(min-width:960px){.hero{padding:5rem 0 4rem}}
 
 /* ═══ SECTIONS ═══ */
 section{padding:4.5rem 0}
+section h2,section > .wrap > .lead{text-align:center;margin-inline:auto}
+section > .wrap > h2{margin-bottom:1rem}
 .grid{display:grid;gap:1.1rem}
 @media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
-.card{padding:1.6rem;display:flex;flex-direction:column;gap:.7rem;position:relative}
+.card{padding:1.6rem;display:flex;flex-direction:column;gap:.7rem;position:relative;align-items:center;text-align:center}
 .card p{color:var(--ink-2);font-size:.98rem}
 .card .big{font-family:var(--display);font-size:3rem;line-height:1;color:var(--gold);font-weight:400}
 .tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:600}
-.story{display:grid;gap:2.2rem}
-@media(min-width:960px){.story{grid-template-columns:1.1fr .9fr;align-items:start}}
+.story{display:grid;gap:2.2rem;justify-items:center;text-align:center}
+.story .values{justify-content:center}
+.story .quote{border-left:0;border-top:3px solid var(--red);padding:1rem 0 0;max-width:60ch}
+.story .lead{max-width:62ch}
+.story .big{max-width:34ch}
 .story .big{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2rem);line-height:1.3;font-weight:500}
-.story .big::first-letter{font-size:3.6em;float:left;line-height:.78;padding:.06em .08em 0 0;color:var(--red);font-weight:600}
+
 .quote{border-left:3px solid var(--red);padding:.4rem 0 .4rem 1.2rem;color:var(--ink-2);font-style:italic;font-family:var(--display);font-size:1.3rem;line-height:1.4}
 .values{display:flex;flex-wrap:wrap;gap:.5rem}
 .values span{padding:.4rem .8rem;border:1px solid var(--line-2);font-family:var(--display);font-style:italic;font-size:1.1rem;background:var(--paper)}
-.photo{border:6px solid var(--paper);outline:1px solid var(--line-2);box-shadow:0 30px 60px -30px rgba(28,26,23,.45);transform:rotate(-1.2deg);margin:0}
-.photo.b{transform:rotate(1.4deg)}
+.photo{border:6px solid var(--paper);outline:1px solid var(--line-2);box-shadow:0 30px 60px -30px rgba(28,26,23,.45);margin:0}
+.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;height:auto!important}
 .photo figcaption{font-family:var(--display);font-style:italic;color:var(--muted);padding:.5rem .2rem 0;font-size:1rem}
 
 /* venues + planner */
@@ -154,9 +157,9 @@ section{padding:4.5rem 0}
 @media(min-width:900px){.venues{grid-template-columns:1fr 1fr 1fr}}
 .venue{padding:0;overflow:hidden}
 .venue img{width:100%;height:auto!important;aspect-ratio:4/3;object-fit:cover;filter:sepia(.18) contrast(1.02)}
-.venue .body{padding:1.2rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.venue .body{padding:1.2rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;align-items:center;text-align:center}
 .venue .cap{font-family:var(--display);font-size:2.4rem;line-height:1;color:var(--red);font-weight:500}
-.planner{margin-top:1.4rem;padding:1.6rem;display:grid;gap:1.4rem}
+.planner{margin-top:1.4rem;padding:1.6rem;display:grid;gap:1.4rem;text-align:left}
 @media(min-width:900px){.planner{grid-template-columns:1fr 1.1fr;padding:2rem}}
 .planner h3{font-size:2rem}
 .planner .out{font-family:var(--display);font-size:1.35rem;line-height:1.3;min-height:3.2em}
@@ -175,13 +178,14 @@ input[type=range]{width:100%;accent-color:var(--red);margin:.6rem 0}
 /* membership */
 .steps{counter-reset:s}
 .steps .card::before{counter-increment:s;content:counter(s,upper-roman);font-family:var(--display);font-size:2.4rem;color:var(--gold);line-height:1}
-.pay{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.pay{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;justify-content:center}
 .pay small{color:var(--muted)}
 
 /* century timeline: horizontal, snap */
 .century{padding:4.5rem 0 4rem;background:var(--ink);color:var(--plaster);overflow:hidden}
 .century .kicker{color:var(--gold)}
 .century .chapter .lbl{color:rgba(243,235,221,.6)}
+.century h2{color:var(--plaster)}
 .century .lead{color:rgba(243,235,221,.75)}
 .rail{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:1.5rem 0 1rem;scrollbar-width:none;cursor:grab}
 .rail::-webkit-scrollbar{display:none}
@@ -190,12 +194,12 @@ input[type=range]{width:100%;accent-color:var(--red);margin:.6rem 0}
 .rail .yr{font-family:var(--display);font-size:4rem;line-height:1;color:var(--gold);font-weight:400}
 .rail h3{color:var(--plaster);font-size:1.4rem}
 .rail p{color:rgba(243,235,221,.72);font-size:.95rem}
-.rail-nav{display:flex;gap:.5rem;justify-content:flex-end}
+.rail-nav{display:flex;gap:.5rem;justify-content:center}
 .rail-nav button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(243,235,221,.35);background:transparent;color:var(--plaster);font-size:1.2rem;cursor:pointer}
 .rail-nav button:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
 
 /* traditions: lanes scoreboard */
-.lanes{display:grid;gap:.5rem}
+.lanes{display:grid;gap:.5rem;width:100%}
 .lane{display:grid;grid-template-columns:44px 1fr auto;gap:.8rem;align-items:center;padding:.65rem .9rem;background:var(--paper);border:1px solid var(--line)}
 .lane b{font-family:var(--display);font-size:1.5rem;color:var(--gold);font-weight:500}
 .lane .pins{display:flex;gap:3px}.lane .pins i{width:9px;height:14px;border-radius:5px 5px 3px 3px;background:var(--ink);opacity:.85}
@@ -203,7 +207,7 @@ input[type=range]{width:100%;accent-color:var(--red);margin:.6rem 0}
 .lane span{font-size:.85rem;color:var(--muted)}
 
 /* events */
-.event{display:grid;grid-template-columns:86px 1fr;gap:1rem;padding:1.1rem 1.2rem;align-items:center}
+.event{display:grid;grid-template-columns:86px 1fr;gap:1rem;padding:1.1rem 1.2rem;align-items:center;text-align:left}
 .event .d{text-align:center;font-family:var(--display);line-height:1;border-right:1px solid var(--line-2);padding-right:.8rem}
 .event .d b{display:block;font-size:2.2rem;color:var(--red);font-weight:500}
 .event .d span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-family:var(--body);font-weight:600}
@@ -215,7 +219,7 @@ input[type=range]{width:100%;accent-color:var(--red);margin:.6rem 0}
 /* contact */
 .contact{display:grid;gap:1.4rem}
 @media(min-width:960px){.contact{grid-template-columns:1.05fr .95fr}}
-.form{padding:1.6rem;display:grid;gap:.9rem}
+.form{padding:1.6rem;display:grid;gap:.9rem;text-align:left}
 .form label{display:grid;gap:.35rem;font-size:.82rem;color:var(--ink-2);font-weight:600;letter-spacing:.04em}
 .form input,.form select,.form textarea{min-height:var(--tap);border-radius:4px;border:1.5px solid var(--line-2);background:#fff;color:var(--ink);padding:.7rem 1rem;font:inherit;font-size:1rem;outline:none;width:100%}
 .form textarea{min-height:110px;resize:vertical}
@@ -232,27 +236,27 @@ footer .cols{display:flex;flex-wrap:wrap;gap:1rem 1.8rem}
 footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.splash-logo,.splash .actions{opacity:1;transform:none}.splash .bg.b{opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.seal-wrap img{opacity:1;transform:none}.seal-wrap .draw{stroke-dashoffset:0}}
 </style>
 </head>
 <body class="locked">
 
 <!-- ═══ SPLASH ═══ -->
 <div class="splash" id="splash">
-  <div class="bg" style="background-image:url(img/building.png)" aria-hidden="true"></div>
-  <div class="bg b" style="background-image:url(img/ballroom.jpg)" aria-hidden="true"></div>
-  <div class="shade" aria-hidden="true"></div>
   <div class="splash-in">
-    <img class="splash-logo" src="img/logo.png" alt="Venetian Social Club, 100th anniversary, 1924 to 2024" width="250" height="250">
-    <div class="actions">
-      <button class="btn seal" type="button" id="newsopen">Join the newsletter</button>
-      <form class="news-form" id="newsform" novalidate>
-        <input type="email" id="newsemail" placeholder="Your email address" autocomplete="email" required aria-label="Email address">
-        <button class="btn seal" type="submit">Sign up</button>
-      </form>
-      <p class="thanks" id="thanks" aria-live="polite"></p>
-      <a class="skip" href="#top" id="enter">Enter the club</a>
+    <div class="seal-wrap" aria-hidden="true">
+      <svg viewBox="0 0 100 100"><circle class="draw" cx="50" cy="50" r="46"/><circle class="draw" cx="50" cy="50" r="42" style="animation-delay:.5s"/><circle class="ticks" cx="50" cy="50" r="44"/></svg>
+      <img src="img/logo.png" alt="Venetian Social Club, 100th anniversary, 1924 to 2024" width="300" height="300">
     </div>
+    <p class="roman">MCMXXIV · CHESTNUT HILL</p>
+    <h1>Venetian Social Club</h1>
+    <p class="lead">Events, fundraisers, league nights and the centennial year, sent to your inbox.</p>
+    <form class="news-form" id="newsform" novalidate>
+      <input type="email" id="newsemail" placeholder="Your email address" autocomplete="email" required aria-label="Email address">
+      <button class="btn seal" type="submit">Join the newsletter</button>
+    </form>
+    <p class="thanks" id="thanks" aria-live="polite"></p>
+    <a class="skip" href="#top" id="enter">Enter the club</a>
   </div>
 </div>
 
@@ -271,26 +275,17 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 
 <!-- ═══ HERO ═══ -->
 <header class="hero">
-  <div class="wm" aria-hidden="true">1924</div>
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="kicker">8030 Germantown Avenue · Chestnut Hill</p>
-      <h1>The club the <em>stonemasons</em> built.</h1>
-      <p class="lead">In 1924 the Friulian craftsmen who cut and set the schist of Chestnut Hill's great houses built one more thing: a club of their own. A century later it is still here, with the largest and most affordable ballroom in Chestnut Hill, a fireplace room, a game room and two bowling lanes that have been rolling since 1930.</p>
-      <div class="cta-row">
-        <a class="btn seal" href="#venues">Plan an event</a>
-        <a class="btn" href="#membership">Become a member</a>
-      </div>
-      <div class="facts">
-        <div><b>1924</b><span>Founded by Friulian craftsmen</span></div>
-        <div><b>175</b><span>Seats in the Grand Ballroom</span></div>
-        <div><b>300</b><span>Members, and never more</span></div>
-        <div><b>2019</b><span>Conservancy Hall of Fame</span></div>
-      </div>
+  <div class="wrap hero-in">
+    <p class="kicker">8030 Germantown Avenue · Chestnut Hill · Est. 1924</p>
+    <h1>The club the <em>stonemasons</em> built.</h1>
+    <p class="lead">In 1924 the Friulian craftsmen who cut and set the schist of Chestnut Hill's great houses built one more thing: a club of their own. A century later it is still here, with the largest and most affordable ballroom in Chestnut Hill, a fireplace room, a game room and two bowling lanes that have been rolling since 1930.</p>
+    <div class="cta-row">
+      <a class="btn seal" href="#venues">Plan an event</a>
+      <a class="btn" href="#membership">Become a member</a>
     </div>
-    <figure class="arch">
+    <figure class="hero-photo">
       <img src="img/building.png" alt="The Venetian Social Club building on Germantown Avenue" width="1000" height="750">
-      <figcaption class="cap"><b>The clubhouse</b><span>Est. MCMXXIV</span></figcaption>
+      <figcaption>The clubhouse, 8030 Germantown Avenue</figcaption>
     </figure>
   </div>
 </header>
@@ -313,7 +308,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
         <div><p class="kicker" style="margin-bottom:.6rem">Our values</p>
           <div class="values"><span>Friendship</span><span>Family</span><span>Community</span><span>Service</span><span>Preservation</span><span>Heritage</span><span>Honesty</span><span>Dependability</span><span>Respect</span></div></div>
       </div>
-      <div class="reveal" style="display:grid;gap:2rem;padding-top:1rem">
+      <div class="reveal" style="display:grid;gap:2rem;padding-top:1rem;grid-template-columns:1fr 1fr;max-width:900px;width:100%">
         <figure class="photo"><img src="img/ballroom.jpg" alt="A banquet in the Grand Ballroom" width="1600" height="1067"><figcaption>The Grand Ballroom, dressed for the 90th anniversary gala.</figcaption></figure>
         <figure class="photo b"><img src="img/members.jpg" alt="Members gathered outside the club" width="829" height="285"><figcaption>Members on the steps, Germantown Avenue.</figcaption></figure>
       </div>
@@ -428,7 +423,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
     </div>
     <div class="card paper reveal" style="margin-top:1.1rem">
       <span class="tag">Newsletter</span><h3>Learn more about our upcoming events, fundraisers, and more.</h3>
-      <form class="news-form" style="justify-content:flex-start" onsubmit="return subscribe(event,this)"><input type="email" placeholder="Your email address" autocomplete="email" required aria-label="Email address"><button class="btn seal" type="submit">Sign up</button></form>
+      <form class="news-form" onsubmit="return subscribe(event,this)"><input type="email" placeholder="Your email address" autocomplete="email" required aria-label="Email address"><button class="btn seal" type="submit">Sign up</button></form>
     </div>
     <div class="grid three news" style="margin-top:2.4rem">
       <a class="card paper reveal" href="https://www.chestnuthilllocal.com/stories/a-centennial-celebration-kicks-off-by-looking-back,30053" target="_blank" rel="noopener"><span class="src">The Chestnut Hill Local</span><h3>A centennial celebration kicks off by looking back</h3><p>How the founders came to the Hill, and the storytelling afternoon that opened the 100th year.</p></a>
@@ -484,7 +479,6 @@ const splash = document.getElementById("splash");
 function dismiss(){ splash.classList.add("gone"); document.body.classList.remove("locked"); try{ sessionStorage.setItem("vsc-splash","1"); }catch(e){} }
 try{ if (sessionStorage.getItem("vsc-splash") || location.search.includes("nosplash")) { splash.classList.add("gone"); document.body.classList.remove("locked"); } }catch(e){}
 document.getElementById("enter").addEventListener("click", e => { e.preventDefault(); dismiss(); });
-document.getElementById("newsopen").addEventListener("click", () => { document.getElementById("newsform").classList.add("open"); document.getElementById("newsopen").style.display = "none"; document.getElementById("newsemail").focus(); });
 function subscribe(e, form){
   e.preventDefault();
   const input = form.querySelector("input[type=email]"); const v = input.value.trim();
