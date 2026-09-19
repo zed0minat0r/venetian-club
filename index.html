@@ -128,6 +128,21 @@ em{font-style:italic;font-weight:500}
 .hero-photo figcaption{font-family:var(--display);font-style:italic;color:var(--muted);padding:.7rem 0 .2rem;font-size:1.05rem;background:var(--paper)}
 @media(min-width:960px){.hero{padding:5rem 0 4rem}}
 
+/* ═══ CAROUSEL: the club's own photographs, full width, under a field of gold dust. ═══ */
+.carousel{position:relative;height:min(78vh,720px);min-height:420px;overflow:hidden;background:#1C1A17;border-block:1px solid var(--line-2)}
+.carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease;background-size:cover;background-position:center}
+.carousel .slide.on{opacity:1;animation:push 7s linear both}
+@keyframes push{from{transform:scale(1)}to{transform:scale(1.08)}}
+.carousel .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,26,23,.1),rgba(28,26,23,.05) 50%,rgba(28,26,23,.7))}
+.carousel canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen}
+.carousel .cap{position:absolute;left:0;right:0;bottom:2.2rem;text-align:center;color:#FBF6EC;font-family:var(--display);font-size:clamp(1.4rem,3.4vw,2.1rem);font-style:italic;text-shadow:0 2px 14px rgba(0,0,0,.6);padding:0 1rem}
+.carousel .dots{position:absolute;left:0;right:0;bottom:.9rem;display:flex;justify-content:center;gap:.5rem}
+.carousel .dots button{width:9px;height:9px;border-radius:50%;border:1px solid rgba(251,246,236,.8);background:transparent;padding:0;cursor:pointer}
+.carousel .dots button.on{background:var(--gold);border-color:var(--gold)}
+.carousel .arr{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid rgba(251,246,236,.5);background:rgba(28,26,23,.35);color:#FBF6EC;font-size:1.2rem;cursor:pointer;display:grid;place-items:center}
+.carousel .arr.l{left:1rem}.carousel .arr.r{right:1rem}
+.carousel .arr:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
 /* ═══ SECTIONS ═══ */
 section{padding:4.5rem 0}
 section h2,section > .wrap > .lead{text-align:center;margin-inline:auto}
@@ -272,6 +287,19 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
     <a class="btn seal" href="#venues">Plan an event</a>
   </div>
 </nav>
+
+<!-- ═══ CAROUSEL ═══ -->
+<div class="carousel" id="carousel" aria-roledescription="carousel">
+  <div class="slide on" style="background-image:url(img/building.png)" data-cap="The clubhouse on Germantown Avenue"></div>
+  <div class="slide" style="background-image:url(img/ballroom.jpg)" data-cap="The Grand Ballroom, dressed for the 90th anniversary gala"></div>
+  <div class="slide" style="background-image:url(img/table.jpg)" data-cap="The 90th anniversary menu, September 27, 2014"></div>
+  <div class="slide" style="background-image:url(img/members.jpg)" data-cap="Members on the steps"></div>
+  <div class="slide" style="background-image:url(img/friuli-flag.jpg);background-size:contain;background-repeat:no-repeat;background-color:#1D5FA8" data-cap="The flag of Friuli, where the founders came from"></div>
+  <canvas id="dust" aria-hidden="true"></canvas>
+  <p class="cap" id="ccap">The clubhouse on Germantown Avenue</p>
+  <button class="arr l" id="cl" aria-label="Previous">←</button><button class="arr r" id="cr" aria-label="Next">→</button>
+  <div class="dots" id="cdots"></div>
+</div>
 
 <!-- ═══ HERO ═══ -->
 <header class="hero">
@@ -556,6 +584,34 @@ document.getElementById("rr").onclick = () => rail.scrollBy({ left: 380, behavio
 let drag = null; rail.addEventListener("pointerdown", e => { drag = { x: e.clientX, s: rail.scrollLeft }; });
 window.addEventListener("pointermove", e => { if (drag) rail.scrollLeft = drag.s - (e.clientX - drag.x); });
 window.addEventListener("pointerup", () => drag = null);
+
+/* THE CAROUSEL. Auto-advances every 7s; arrows, dots, swipe. */
+const slides = [...document.querySelectorAll("#carousel .slide")], dots = document.getElementById("cdots"), ccap = document.getElementById("ccap");
+let cur = 0, timer;
+slides.forEach((_, k) => { const b = document.createElement("button"); b.setAttribute("aria-label", "Slide " + (k + 1)); b.onclick = () => go(k); dots.appendChild(b); });
+function go(k){ cur = (k + slides.length) % slides.length; slides.forEach((sl, i) => sl.classList.toggle("on", i === cur)); [...dots.children].forEach((d, i) => d.classList.toggle("on", i === cur)); ccap.textContent = slides[cur].dataset.cap; clearInterval(timer); timer = setInterval(() => go(cur + 1), 7000); }
+document.getElementById("cl").onclick = () => go(cur - 1); document.getElementById("cr").onclick = () => go(cur + 1);
+let sx = null; const car = document.getElementById("carousel");
+car.addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
+car.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); sx = null; });
+go(0);
+
+/* GOLD DUST over the carousel: slow, drifting, each mote a soft radial sprite, screen-blended. */
+const cv = document.getElementById("dust"), cx2 = cv.getContext("2d");
+let motes = [];
+function sizeDust(){ cv.width = car.clientWidth; cv.height = car.clientHeight; motes = Array.from({ length: Math.round(cv.width / 9) }, () => ({ x: Math.random() * cv.width, y: Math.random() * cv.height, r: 1 + Math.random() * 2.6, vx: (Math.random() - .5) * .25, vy: -.15 - Math.random() * .35, p: Math.random() * 6.28, s: .6 + Math.random() * 1.2 })); }
+sizeDust(); window.addEventListener("resize", sizeDust);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+(function tick(t){
+  cx2.clearRect(0, 0, cv.width, cv.height);
+  for (const m of motes) {
+    m.x += m.vx + Math.sin(t / 1400 + m.p) * .15; m.y += m.vy; if (m.y < -6) { m.y = cv.height + 6; m.x = Math.random() * cv.width; } if (m.x < -6) m.x = cv.width + 6; if (m.x > cv.width + 6) m.x = -6;
+    const a = .35 + .35 * Math.sin(t / 700 * m.s + m.p);
+    const g = cx2.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.r * 4); g.addColorStop(0, `rgba(255,236,180,${a})`); g.addColorStop(.35, `rgba(233,207,139,${a * .5})`); g.addColorStop(1, "rgba(233,207,139,0)");
+    cx2.fillStyle = g; cx2.beginPath(); cx2.arc(m.x, m.y, m.r * 4, 0, 6.28); cx2.fill();
+  }
+  if (!reduce) requestAnimationFrame(tick);
+})(0);
 
 /* reveal on scroll */
 const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) x.target.classList.add("in"); }), { threshold: .1 });
