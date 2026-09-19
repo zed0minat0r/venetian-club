@@ -48,7 +48,7 @@ img{display:block;max-width:100%;height:auto}
 .wrap{width:min(1120px,calc(100% - 2.5rem));margin-inline:auto}
 .narrow{width:min(680px,calc(100% - 2.5rem));margin-inline:auto;text-align:center}
 .lead{font-size:1.08rem;color:var(--ink-2)}
-.ph{background:var(--ph-bg);color:var(--ph-ink);padding:0 .35em;border-radius:3px;font-weight:600;font-size:.9em;white-space:nowrap}
+.ph{background:var(--ph-bg);color:var(--ph-ink);padding:0 .35em;border-radius:3px;font-weight:600;font-size:.9em}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:var(--tap);padding:0 1.8rem;font-family:var(--body);font-weight:500;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;transition:background .25s,color .25s}
 .btn:hover{background:var(--ink);color:var(--cream)}
 .btn.solid{background:var(--ink);color:var(--cream)}
@@ -60,6 +60,7 @@ img{display:block;max-width:100%;height:auto}
 .divider::before,.divider::after{content:"";height:1px;width:56px;background:var(--line)}
 .dark .divider::before,.dark .divider::after{background:var(--line-dark)}
 section{padding:5.5rem 0}
+@media(max-width:759px){section{padding:3.4rem 0}.hero{min-height:520px;height:80vh}.band{height:52vh;min-height:300px}.mission-text{font-size:1.25rem!important}h2{font-size:clamp(1.9rem,8.4vw,2.6rem)}}
 .dark{background:var(--black);color:var(--cream)}
 .dark .lead{color:rgba(245,241,232,.78)}
 .dark .caps{color:rgba(245,241,232,.7)}
@@ -69,7 +70,7 @@ section{padding:5.5rem 0}
 /* ═══ SPLASH: their logo, a ring of gold that draws itself, the newsletter. ═══ */
 .splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1.5rem;background:var(--cream);transition:opacity .8s ease,visibility .8s}
 .splash::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 35%,rgba(184,137,43,.18),transparent 65%),radial-gradient(40% 30% at 50% 100%,rgba(158,27,34,.12),transparent 60%)}
-.splash.gone{opacity:0;visibility:hidden}
+.splash.gone{opacity:0;visibility:hidden;pointer-events:none;display:none}
 .splash-in{position:relative;width:min(600px,100%);text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem}
 .seal-wrap{position:relative;width:clamp(210px,54vw,300px);aspect-ratio:1;display:grid;place-items:center}
 .seal-wrap svg{position:absolute;inset:-10%;width:120%;height:120%}
@@ -131,12 +132,33 @@ section{padding:5.5rem 0}
 /* tiles: photograph, label, one line. The Union League's grid. */
 .tiles{display:grid;gap:1.6rem}
 @media(min-width:760px){.tiles{grid-template-columns:repeat(3,1fr)}.tiles.two{grid-template-columns:repeat(2,1fr)}}
+/* PHONE: rows swipe sideways instead of stacking three tall tiles. Snap, no scrollbar, a peek of the next card. */
+@media(max-width:759px){
+  .tiles{display:flex;gap:.9rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:1.25rem;scrollbar-width:none;padding:0 1.25rem .4rem;margin:0 -1.25rem;-webkit-overflow-scrolling:touch}
+  .tiles::-webkit-scrollbar{display:none}
+  .tiles .tile{flex:0 0 78%;scroll-snap-align:start}
+  .tiles .tile img{aspect-ratio:4/3}
+  .press{display:flex;gap:.9rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:1.25rem;scrollbar-width:none;padding:0 1.25rem .4rem;margin:2rem -1.25rem 0;max-width:none}
+  .press::-webkit-scrollbar{display:none}
+  .press a{flex:0 0 78%;scroll-snap-align:start;border:1px solid var(--line);padding:1.1rem;border-bottom:1px solid var(--line)}
+  .swipe-hint{display:block;text-align:center;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.9rem}
+  .steps{display:flex;gap:.9rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:1.25rem;scrollbar-width:none;padding:0 1.25rem .4rem;margin:0 -1.25rem}
+  .steps::-webkit-scrollbar{display:none}
+  .steps div{flex:0 0 74%;scroll-snap-align:start;border:1px solid var(--line);padding:1.2rem 1rem}
+  .planner{padding:1.2rem;margin-top:2rem}
+  .planner .cta-row .btn{flex:1 1 100%}
+  .hero .cta{flex-direction:column;align-items:stretch;width:min(300px,100%)}
+  .list div{grid-template-columns:70px 1fr;gap:.8rem}
+  .contact{gap:2.5rem}
+}
+.swipe-hint{display:none}
 .tile{text-decoration:none;display:flex;flex-direction:column;gap:.9rem;text-align:center;align-items:center}
 .tile img{width:100%;aspect-ratio:4/3;object-fit:cover;height:auto!important;filter:saturate(.85)}
 .tile .caps{color:var(--gold)}
 .tile h3{font-size:1.6rem}
 .tile p{color:var(--ink-2);font-size:.98rem;max-width:34ch}
 .tile:hover img{filter:saturate(1)}
+.dark .tile{border:1px solid var(--line-dark);padding:1.6rem 1.2rem}
 
 /* facts in a row, hairlines, no boxes */
 .row{display:flex;flex-wrap:wrap;justify-content:center;gap:2.4rem;margin-top:.6rem}
@@ -159,7 +181,7 @@ section{padding:5.5rem 0}
 .planner h3{font-size:1.9rem}
 .planner .out{font-family:var(--display);font-size:1.3rem;line-height:1.35;min-height:3em}
 .planner .out b{font-weight:600}
-input[type=range]{width:100%;accent-color:var(--ink);margin:.6rem 0}
+input[type=range]{width:100%;accent-color:var(--ink);margin:.6rem 0;height:32px}
 .guests{font-family:var(--display);font-size:3.6rem;line-height:1;font-weight:400}
 .guests small{font-size:.74rem;font-family:var(--body);color:var(--muted);margin-left:.5rem;letter-spacing:.18em;text-transform:uppercase}
 .styles{display:flex;flex-wrap:wrap;gap:.4rem}
@@ -271,7 +293,7 @@ footer img{width:56px}
   <div class="narrow block reveal">
     <span class="divider">✦</span>
     <p class="caps gold">Our mission</p>
-    <p class="lead" style="font-family:var(--display);font-size:1.5rem;line-height:1.4;color:var(--cream)">The Venetian Social Club provides a welcoming and enjoyable social experience for our members, their families, and friends through club activities and events. We continue our role as a valuable and trusted partner supporting culture, charity causes and groups within our members' communities. We are responsible stewards of our historic facility and heritage.</p>
+    <p class="lead mission-text" style="font-family:var(--display);font-size:1.5rem;line-height:1.4;color:var(--cream)">The Venetian Social Club provides a welcoming and enjoyable social experience for our members, their families, and friends through club activities and events. We continue our role as a valuable and trusted partner supporting culture, charity causes and groups within our members' communities. We are responsible stewards of our historic facility and heritage.</p>
     <p class="caps" style="letter-spacing:.3em">Friendship · Family · Community · Service · Preservation · Heritage · Honesty · Dependability · Respect</p>
   </div>
 </section>
@@ -290,6 +312,7 @@ footer img{width:56px}
       <a class="tile reveal" href="#planner"><img src="img/table.jpg" alt="The Founders Room" width="1001" height="1500"><span class="caps">Founders Room</span><h3>Up to 60 guests</h3><p>A working fireplace. Meetings, rehearsal dinners, showers and small gatherings.</p></a>
       <a class="tile reveal" href="#membership"><img src="img/members.jpg" alt="Members outside the club" width="829" height="285"><span class="caps">Game room and lanes</span><h3>Members and guests</h3><p>Two pool tables, shuffleboard, a working Skee-Ball machine and two original 1930 bowling lanes.</p></a>
     </div>
+    <span class="swipe-hint">Swipe →</span>
 
     <div class="planner reveal" id="planner">
       <div>
@@ -344,6 +367,7 @@ footer img{width:56px}
       <div class="tile"><span class="caps">Since 2005</span><h3>The Chestnut Hill Mummers</h3><p style="color:rgba(245,241,232,.75)">The Venetian New Years Association marches every New Year's Day in the Philadelphia Mummers Parade with the Murray Comic Club. The only club representing Northwest Philly.</p></div>
       <div class="tile"><span class="caps">Since 1924</span><h3>Friuli</h3><p style="color:rgba(245,241,232,.75)">The founders' region, kept alive with dinners, talks and the centennial series, from a storytelling afternoon with the founding families to Christmas in Poffabro.</p></div>
     </div>
+    <span class="swipe-hint" style="color:rgba(245,241,232,.5)">Swipe →</span>
   </div>
 </section>
 
