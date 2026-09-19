@@ -93,18 +93,18 @@ section{padding:5.5rem 0}
 .thanks{color:var(--gold-2);font-weight:600;min-height:1.4em;font-family:var(--display);font-size:1.15rem}
 
 
-/* NAV: the mark centred, links either side, small caps. Dark over the hero, then sticky cream. */
-.nav{position:sticky;top:0;z-index:50;background:rgba(245,241,232,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:72px;gap:1rem}
-.nav .links{display:none;gap:1.6rem}
-.nav .links a{text-decoration:none;color:var(--ink-2)}
+/* NAV: the mark centred between the links on desktop; on a phone a single row, mark left, Book right. */
+.nav{position:sticky;top:0;z-index:50;background:rgba(245,241,232,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:1rem}
+.nav .links{display:none;gap:1.6rem;flex:1}
+.nav .links a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
 .nav .links a:hover{color:var(--ink)}
 .nav .links.r{justify-content:flex-end}
-.nav .mark{display:flex;align-items:center;gap:.7rem;text-decoration:none;justify-self:center}
-.nav .mark img{width:40px;height:40px}
-.nav .mark span{font-family:var(--display);font-size:1.25rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
-.nav .cta{justify-self:end}
-@media(min-width:1000px){.nav .links{display:flex}.nav .cta{display:none}}
+.nav .mark{display:flex;align-items:center;gap:.6rem;text-decoration:none;white-space:nowrap}
+.nav .mark img{width:36px;height:36px}
+.nav .mark span{font-family:var(--display);font-size:1.15rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+.nav .cta{min-height:40px;padding:0 1.1rem;font-size:.7rem}
+@media(min-width:1000px){.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;min-height:72px}.nav .links{display:flex}.nav .mark{justify-self:center}.nav .cta{display:none}}
 
 /* HERO: one photograph, the mark, one line. The photographs crossfade slowly - that is the carousel. */
 .hero{position:relative;height:min(92vh,860px);min-height:560px;overflow:hidden;background:var(--black);color:var(--cream)}
@@ -261,12 +261,6 @@ footer img{width:56px}
     <h2>Built by the people who built the Hill.</h2>
     <p class="lead">In 1924, stonemasons, bricklayers and carpenters from the Friuli Venezia-Giulia region of northern Italy, brought to Chestnut Hill to quarry, cut and set the Wissahickon schist of the Houston and Woodward homes, founded a club of their own at 8030 Germantown Avenue. They called it Venetian because their villages lay near Venice.</p>
     <p class="lead">A century on, the Venetian Social Club is a 501(c)7 non-profit, inducted into the Chestnut Hill Conservancy Hall of Fame in 2019, and still run for its members, their families and their friends.</p>
-    <div class="row">
-      <div><b>1924</b><span>Founded</span></div>
-      <div><b>175</b><span>Ballroom seats</span></div>
-      <div><b>300</b><span>Members</span></div>
-      <div><b>1930</b><span>Bowling lanes</span></div>
-    </div>
   </div>
 </section>
 
