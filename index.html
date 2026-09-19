@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Venetian Social Club · Chestnut Hill, Philadelphia · Since 1924</title>
-<meta name="description" content="The Venetian Social Club, 8030 Germantown Avenue, Chestnut Hill. A private Italian-American social club since 1924 with the largest and most affordable ballroom rentals in Chestnut Hill, a Founders Room, game room and two original 1930 bowling lanes.">
-<meta name="theme-color" content="#0B0F1A">
-<meta property="og:title" content="Venetian Social Club · Chestnut Hill · Since 1924">
+<title>Venetian Social Club · Chestnut Hill · Est. 1924</title>
+<meta name="description" content="The Venetian Social Club, 8030 Germantown Avenue, Chestnut Hill. A private Italian-American social club since 1924: the largest and most affordable ballroom in Chestnut Hill, the Founders Room, a game room and two original 1930 bowling lanes.">
+<meta name="theme-color" content="#F3EBDD">
+<meta property="og:title" content="Venetian Social Club · Chestnut Hill · Est. 1924">
 <meta property="og:description" content="A hundred years on Germantown Avenue. Ballroom and meeting room rentals, membership, bowling, and the Chestnut Hill Mummers.">
 <meta property="og:image" content="https://zed0minat0r.github.io/venetian-club/img/ballroom.jpg">
 <meta property="og:url" content="https://zed0minat0r.github.io/venetian-club/">
@@ -16,377 +16,456 @@
 <link rel="canonical" href="https://zed0minat0r.github.io/venetian-club/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter+Tight:wght@400;500;600&display=swap">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Venetian Social Club","alternateName":"The Venetian Club","foundingDate":"1924","url":"https://zed0minat0r.github.io/venetian-club/","logo":"https://zed0minat0r.github.io/venetian-club/img/logo.png","telephone":"+1-215-247-9858","address":{"@type":"PostalAddress","streetAddress":"8030 Germantown Avenue","addressLocality":"Philadelphia","addressRegion":"PA","postalCode":"19118","addressCountry":"US"},"sameAs":["https://www.twitter.com/thevclub","https://venetian.club/"]}
 </script>
 <style>
-/* ── ONE WORLD: a Venetian evening. Lagoon-dark ground, Venetian red, old gold, cream type. ─────── */
+/* ═══ THE CONCEPT: A 1924 ITALIAN WORKERS' CLUB. Plaster and terrazzo, not glass. Ink on paper, a
+   Venetian red seal, old gold rule-work, lagoon blue from the Friuli flag. Chapters carry Roman
+   numerals like a club charter. Every colour is painted; nothing inherits. ═══ */
 :root{
-  --bg:#0B0F1A; --bg2:#111726; --ink:#F4EEE1; --muted:#B9B1A2; --dim:#7E7869;
-  --line:rgba(244,238,225,.10); --line2:rgba(244,238,225,.2);
-  --surface:rgba(244,238,225,.045); --surface2:rgba(244,238,225,.085);
-  --red:#A8202B; --red-deep:#6E121A; --gold:#CDA349; --gold-light:#E9CF8B; --gold-dim:rgba(205,163,73,.16);
+  --plaster:#F3EBDD; --plaster-2:#EBE1CF; --paper:#FBF6EC; --ink:#1C1A17; --ink-2:#4A443B; --muted:#7A7264;
+  --line:rgba(28,26,23,.14); --line-2:rgba(28,26,23,.28);
+  --red:#9E1B22; --red-2:#7C1219; --gold:#B8892B; --gold-2:#8F6A1F; --gold-soft:rgba(184,137,43,.14);
+  --lagoon:#123A5A; --lagoon-2:#0B2740;
   --ph-bg:#3A3210; --ph-ink:#F2DC8F;
   --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-  --body:"Inter",ui-sans-serif,system-ui,-apple-system,sans-serif;
-  --r:20px; --tap:52px;
+  --body:"Inter Tight",ui-sans-serif,system-ui,-apple-system,sans-serif;
+  --tap:52px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;color-scheme:dark}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;color-scheme:light}
+body{margin:0;background:var(--plaster);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body.locked{overflow:hidden}
-h1,h2,h3{font-family:var(--display);margin:0;line-height:1.02;letter-spacing:-.005em;text-wrap:balance;font-weight:600}
-h1{font-size:clamp(2.6rem,10.5vw,5.6rem)}
-h2{font-size:clamp(2.1rem,7.5vw,3.6rem)}
-h3{font-size:1.55rem}
+/* terrazzo: a fixed speckle field, faint, under everything */
+.terrazzo{position:fixed;inset:0;z-index:-1;pointer-events:none;background-color:var(--plaster);background-image:
+  radial-gradient(circle at 12% 18%,rgba(158,27,34,.14) 0 3px,transparent 4px),
+  radial-gradient(circle at 78% 32%,rgba(18,58,90,.13) 0 2.5px,transparent 3.5px),
+  radial-gradient(circle at 45% 70%,rgba(184,137,43,.16) 0 3px,transparent 4px),
+  radial-gradient(circle at 88% 82%,rgba(28,26,23,.10) 0 2px,transparent 3px),
+  radial-gradient(circle at 25% 92%,rgba(18,58,90,.11) 0 2px,transparent 3px),
+  radial-gradient(circle at 60% 12%,rgba(158,27,34,.10) 0 2px,transparent 3px),
+  radial-gradient(circle at 5% 55%,rgba(184,137,43,.12) 0 2.5px,transparent 3.5px),
+  radial-gradient(circle at 95% 5%,rgba(28,26,23,.08) 0 3px,transparent 4px);
+  background-size:230px 230px,310px 310px,270px 270px,190px 190px,350px 350px,260px 260px,210px 210px,330px 330px}
+.terrazzo::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% -10%,rgba(255,255,255,.55),transparent 60%)}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:.98;letter-spacing:-.01em;text-wrap:balance;font-weight:500}
+h1{font-size:clamp(3rem,11vw,6.6rem)}
+h2{font-size:clamp(2.4rem,7.5vw,4.4rem)}
+h3{font-size:1.7rem;font-weight:600}
 p{margin:0}
 a{color:inherit}
 img{display:block;max-width:100%;height:auto}
-.wrap{width:min(1180px,calc(100% - 2rem));margin-inline:auto}
-.eyebrow{font-weight:600;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+em{font-style:italic;font-weight:500}
+.wrap{width:min(1200px,calc(100% - 2rem));margin-inline:auto}
+.kicker{font-weight:600;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+.lead{font-size:1.12rem;color:var(--ink-2);max-width:60ch}
 .ph{background:var(--ph-bg);color:var(--ph-ink);padding:0 .35em;border-radius:4px;font-weight:600;font-size:.9em;white-space:nowrap}
-.gold{background:linear-gradient(92deg,#F4EEE1 0%,#E9CF8B 45%,#CDA349 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);width:120px;margin:1.2rem 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:var(--tap);padding:0 1.35rem;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--line2);color:var(--ink);background:var(--surface);transition:transform .2s,background .2s,border-color .2s;cursor:pointer;font-family:var(--body);font-size:1rem}
-.btn:hover{transform:translateY(-1px);background:var(--surface2)}
-.btn.primary{background:linear-gradient(180deg,#B7262F,#8F1A22);border-color:#C33440;color:#FFF7EC;box-shadow:0 12px 34px rgba(168,32,43,.35)}
-.btn.primary:hover{background:linear-gradient(180deg,#C42B35,#9C1E27)}
-.btn.gold{background:linear-gradient(180deg,#E9CF8B,#CDA349);border-color:#E9CF8B;color:#2A1F08}
-.glass{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:var(--tap);padding:0 1.4rem;border-radius:4px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;transition:transform .2s,background .2s,color .2s;cursor:pointer;font-family:var(--body);font-size:.98rem;letter-spacing:.01em}
+.btn:hover{transform:translateY(-1px);background:var(--ink);color:var(--paper)}
+.btn.seal{background:var(--red);border-color:var(--red);color:#FFF6EA;box-shadow:0 10px 26px rgba(158,27,34,.28)}
+.btn.seal:hover{background:var(--red-2);border-color:var(--red-2);color:#FFF6EA}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#1C1A17}
+.btn.gold:hover{background:var(--gold-2);border-color:var(--gold-2);color:#fff}
+.chapter{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.2rem}
+.chapter .num{font-family:var(--display);font-size:clamp(3rem,8vw,4.6rem);line-height:1;color:var(--gold);font-weight:400}
+.chapter .num::after{content:"";display:block;height:2px;background:var(--gold);width:100%;margin-top:.2rem}
+.chapter .lbl{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.hr{height:1px;background:var(--line-2);margin:0}
+.paper{background:var(--paper);border:1px solid var(--line);box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 24px 60px -30px rgba(28,26,23,.25)}
+.ticker{overflow:hidden;border-block:1px solid var(--line-2);background:var(--ink);color:var(--plaster);padding:.55rem 0;font-family:var(--display);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase}
+.ticker div{display:flex;gap:3rem;width:max-content;animation:tick 40s linear infinite}
+.ticker span::before{content:"✦";color:var(--gold);margin-right:3rem}
+@keyframes tick{to{transform:translateX(-50%)}}
 
-/* ambient */
-.ambient{position:fixed;inset:0;z-index:-1;pointer-events:none;background:
-  radial-gradient(55% 40% at 12% 0%,rgba(168,32,43,.22),transparent 60%),
-  radial-gradient(45% 40% at 95% 15%,rgba(205,163,73,.14),transparent 60%),
-  radial-gradient(60% 50% at 50% 110%,rgba(30,60,110,.28),transparent 60%),var(--bg)}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:drift 26s ease-in-out infinite alternate}
-.orb.a{width:48vw;height:48vw;left:-14vw;top:-10vw;background:#7A1620}
-.orb.b{width:40vw;height:40vw;right:-12vw;top:18vw;background:#8A6A22;animation-duration:32s}
-@keyframes drift{to{transform:translate3d(6vw,7vw,0) scale(1.1)}}
-
-/* ── SPLASH: the first thing anyone sees. Logo, one line, the newsletter. ────────────────────── */
-.splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1.5rem;background:
-  radial-gradient(70% 55% at 50% 30%,rgba(168,32,43,.35),transparent 65%),
-  radial-gradient(50% 40% at 50% 100%,rgba(205,163,73,.18),transparent 60%),#070A12;
-  transition:opacity .7s ease,visibility .7s}
+/* ═══ SPLASH: their logo, a ring of gold that draws itself, the newsletter. ═══ */
+.splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1.5rem;background:var(--plaster);transition:opacity .8s ease,visibility .8s}
+.splash::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 35%,rgba(184,137,43,.18),transparent 65%),radial-gradient(40% 30% at 50% 100%,rgba(158,27,34,.12),transparent 60%)}
 .splash.gone{opacity:0;visibility:hidden}
-.splash-in{width:min(560px,100%);text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.1rem}
-.splash-logo{width:clamp(180px,48vw,260px);aspect-ratio:1;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
-.splash-ring{position:absolute;width:clamp(260px,70vw,420px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(205,163,73,.25);top:50%;left:50%;transform:translate(-50%,-62%);animation:pulse 4s ease-in-out infinite}
-@keyframes pulse{50%{transform:translate(-50%,-62%) scale(1.06);opacity:.5}}
-.splash h1{font-size:clamp(2rem,8vw,3.4rem);animation:rise 1s .15s cubic-bezier(.2,.8,.2,1) both}
-.splash .eyebrow{animation:rise 1s .25s both}
-.splash .lead{animation:rise 1s .3s both;font-size:1rem}
-@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-.news-form{display:flex;gap:.5rem;width:100%;max-width:460px;animation:rise 1s .4s both;flex-wrap:wrap;justify-content:center}
-.news-form input{flex:1 1 200px;min-height:var(--tap);border-radius:999px;border:1px solid var(--line2);background:rgba(244,238,225,.06);color:var(--ink);padding:0 1.2rem;font:inherit;font-size:1rem;outline:none}
+.splash-in{position:relative;width:min(600px,100%);text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.seal-wrap{position:relative;width:clamp(210px,54vw,300px);aspect-ratio:1;display:grid;place-items:center}
+.seal-wrap svg{position:absolute;inset:-10%;width:120%;height:120%}
+.seal-wrap circle{fill:none;stroke:var(--gold);stroke-width:1.2}
+.seal-wrap .draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.2s .2s cubic-bezier(.4,0,.2,1) forwards}
+.seal-wrap .ticks{stroke-dasharray:1 9;stroke-width:6;opacity:0;animation:fade 1s 1.6s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:.6}}
+.seal-wrap img{width:82%;filter:drop-shadow(0 24px 40px rgba(28,26,23,.3));opacity:0;transform:scale(.92);animation:pop 1s .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+.splash h1{font-size:clamp(2.2rem,8vw,3.8rem);animation:rise 1s 1.4s both}
+.splash .roman{font-family:var(--display);font-size:1.1rem;letter-spacing:.3em;color:var(--gold-2);animation:rise 1s 1.5s both}
+.splash .lead{font-size:1rem;animation:rise 1s 1.6s both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.news-form{display:flex;gap:.5rem;width:100%;max-width:470px;flex-wrap:wrap;justify-content:center}
+.splash .news-form{animation:rise 1s 1.75s both}
+.news-form input{flex:1 1 210px;min-height:var(--tap);border-radius:4px;border:1.5px solid var(--line-2);background:var(--paper);color:var(--ink);padding:0 1.1rem;font:inherit;font-size:1rem;outline:none}
 .news-form input:focus{border-color:var(--gold)}
-.news-form .btn{flex:0 0 auto}
-.skip{color:var(--muted);font-size:.92rem;text-decoration:none;border-bottom:1px solid var(--line2);padding-bottom:2px;animation:rise 1s .5s both}
+.skip{color:var(--muted);font-size:.92rem;text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:2px;animation:rise 1s 1.9s both}
 .skip:hover{color:var(--ink)}
-.thanks{color:var(--gold-light);font-weight:600;min-height:1.4em}
+.thanks{color:var(--red);font-weight:600;min-height:1.4em;font-family:var(--display);font-size:1.15rem}
 
-/* ── NAV ─────────────────────────────────────────────────────────────────────────────────── */
-.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(11,15,26,.72);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:.01em}
-.brand img{width:40px;height:40px;border-radius:50%}
-.nav-links{display:none;gap:1.6rem;font-size:.92rem;font-weight:500;color:var(--muted)}
-.nav-links a{text-decoration:none}
-.nav-links a:hover{color:var(--ink)}
-.nav .btn{min-height:44px;padding:0 1.1rem;font-size:.92rem}
-@media(min-width:900px){.nav-links{display:flex}}
+/* ═══ NAV ═══ */
+.nav{position:sticky;top:0;z-index:50;background:rgba(243,235,221,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-2)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:66px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-family:var(--display);font-weight:600;font-size:1.3rem}
+.brand img{width:38px;height:38px}
+.nav-links{display:none;gap:1.5rem;font-size:.9rem;font-weight:500;color:var(--ink-2)}
+.nav-links a{text-decoration:none;border-bottom:1px solid transparent}
+.nav-links a:hover{border-color:var(--gold);color:var(--ink)}
+.nav .btn{min-height:42px;padding:0 1rem;font-size:.9rem}
+@media(min-width:960px){.nav-links{display:flex}}
 
-/* ── HERO ─────────────────────────────────────────────────────────────────────────────────── */
-.hero{position:relative;padding:3rem 0 3.5rem;overflow:hidden}
-.hero-grid{display:grid;gap:2rem}
+/* ═══ HERO ═══ */
+.hero{position:relative;padding:3.2rem 0 2.5rem;overflow:hidden}
+.hero .wm{position:absolute;right:-2vw;top:-1rem;font-family:var(--display);font-size:clamp(9rem,30vw,24rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(184,137,43,.35);pointer-events:none;user-select:none;letter-spacing:-.04em}
+.hero-grid{display:grid;gap:2rem;position:relative}
 .hero-copy{display:flex;flex-direction:column;gap:1.3rem}
-.hero .lead{font-size:1.15rem}
+.hero h1 em{color:var(--red)}
 .cta-row{display:flex;flex-wrap:wrap;gap:.7rem}
-.hero-art{position:relative;border-radius:calc(var(--r) + 6px);overflow:hidden;aspect-ratio:4/3;box-shadow:0 40px 90px rgba(0,0,0,.55);border:1px solid var(--line2)}
-.hero-art img{width:100%;height:100%!important;object-fit:cover;transform:scale(1.02);animation:slow 30s linear infinite alternate}
+.arch{position:relative;border-radius:999px 999px 8px 8px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 40px 80px -30px rgba(28,26,23,.5);border:6px solid var(--paper);outline:1px solid var(--line-2);margin:0}
+.arch img{width:100%;height:100%!important;object-fit:cover;object-position:50% 40%;transform:scale(1.02);animation:slow 30s linear infinite alternate}
 @keyframes slow{to{transform:scale(1.1)}}
-.hero-art .cap{position:absolute;left:1rem;bottom:1rem;right:1rem;display:flex;justify-content:space-between;align-items:end;gap:1rem;color:#FFF7EC;text-shadow:0 2px 12px rgba(0,0,0,.7)}
-.hero-art .cap b{font-family:var(--display);font-size:1.5rem;font-weight:600}
-.hero-art .cap span{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light)}
-.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-top:.6rem}
-.trust div{padding:.9rem 1rem;border-radius:16px}
-.trust b{display:block;font-family:var(--display);font-size:1.7rem;line-height:1;color:var(--gold-light)}
-.trust span{font-size:.8rem;color:var(--muted)}
-@media(min-width:900px){.hero{padding:4.5rem 0 5rem}.hero-grid{grid-template-columns:1.05fr .95fr;align-items:center}.trust{grid-template-columns:repeat(4,1fr)}}
+.arch .cap{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.2rem;background:linear-gradient(transparent,rgba(28,26,23,.75));color:#FBF6EC;display:flex;justify-content:space-between;align-items:end;font-family:var(--display)}
+.arch .cap b{font-size:1.4rem;font-weight:600}.arch .cap span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-family:var(--body);color:#E9CF8B}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line-2);background:var(--paper)}
+.facts div{padding:1rem 1.1rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts b{display:block;font-family:var(--display);font-size:2.2rem;line-height:1;color:var(--red);font-weight:500}
+.facts span{font-size:.8rem;color:var(--muted)}
+@media(min-width:960px){.hero{padding:4.5rem 0 3.5rem}.hero-grid{grid-template-columns:1.15fr .85fr;align-items:center}.facts{grid-template-columns:repeat(4,1fr)}.facts div{border-bottom:0}.facts div:last-child{border-right:0}}
 
-/* ── SECTIONS ─────────────────────────────────────────────────────────────────────────────── */
-section{padding:4rem 0}
-.sec-head{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem;max-width:64ch}
-.grid{display:grid;gap:1rem}
+/* ═══ SECTIONS ═══ */
+section{padding:4.5rem 0}
+.grid{display:grid;gap:1.1rem}
 @media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
-.card{padding:1.5rem;border-radius:var(--r);display:flex;flex-direction:column;gap:.7rem;position:relative;overflow:hidden}
-.card h3{color:var(--ink)}
-.card p{color:var(--muted);font-size:.98rem}
-.card .num{font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--gold-light)}
-.card .tag{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-.venue{padding:0}
-.venue img{width:100%;height:auto!important;aspect-ratio:16/10;object-fit:cover;filter:saturate(.9)}
-.venue .body{padding:1.3rem 1.5rem 1.6rem;display:flex;flex-direction:column;gap:.6rem}
-.venue .meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:.86rem;color:var(--gold-light)}
-.values{display:flex;flex-wrap:wrap;gap:.55rem}
-.values span{padding:.5rem .9rem;border-radius:999px;border:1px solid var(--line2);font-size:.9rem;font-family:var(--display);font-weight:600;font-style:italic;font-size:1.05rem}
-.story{display:grid;gap:2rem}
-@media(min-width:900px){.story{grid-template-columns:1fr 1fr;align-items:start}}
-.story .big{font-family:var(--display);font-size:clamp(1.35rem,3vw,1.7rem);line-height:1.35;color:var(--ink);font-weight:500}
-.quote{border-left:2px solid var(--gold);padding-left:1.1rem;color:var(--muted);font-style:italic;font-family:var(--display);font-size:1.2rem}
-.timeline{display:grid;gap:.9rem}
-.timeline div{display:grid;grid-template-columns:70px 1fr;gap:1rem;align-items:baseline;padding:.9rem 1rem;border-radius:14px}
-.timeline b{font-family:var(--display);font-size:1.5rem;color:var(--gold-light);font-weight:600}
-.timeline p{color:var(--muted);font-size:.95rem}
+.card{padding:1.6rem;display:flex;flex-direction:column;gap:.7rem;position:relative}
+.card p{color:var(--ink-2);font-size:.98rem}
+.card .big{font-family:var(--display);font-size:3rem;line-height:1;color:var(--gold);font-weight:400}
+.tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:600}
+.story{display:grid;gap:2.2rem}
+@media(min-width:960px){.story{grid-template-columns:1.1fr .9fr;align-items:start}}
+.story .big{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2rem);line-height:1.3;font-weight:500}
+.story .big::first-letter{font-size:3.6em;float:left;line-height:.78;padding:.06em .08em 0 0;color:var(--red);font-weight:600}
+.quote{border-left:3px solid var(--red);padding:.4rem 0 .4rem 1.2rem;color:var(--ink-2);font-style:italic;font-family:var(--display);font-size:1.3rem;line-height:1.4}
+.values{display:flex;flex-wrap:wrap;gap:.5rem}
+.values span{padding:.4rem .8rem;border:1px solid var(--line-2);font-family:var(--display);font-style:italic;font-size:1.1rem;background:var(--paper)}
+.photo{border:6px solid var(--paper);outline:1px solid var(--line-2);box-shadow:0 30px 60px -30px rgba(28,26,23,.45);transform:rotate(-1.2deg);margin:0}
+.photo.b{transform:rotate(1.4deg)}
+.photo figcaption{font-family:var(--display);font-style:italic;color:var(--muted);padding:.5rem .2rem 0;font-size:1rem}
+
+/* venues + planner */
+.venues{display:grid;gap:1.1rem}
+@media(min-width:900px){.venues{grid-template-columns:1fr 1fr 1fr}}
+.venue{padding:0;overflow:hidden}
+.venue img{width:100%;height:auto!important;aspect-ratio:4/3;object-fit:cover;filter:sepia(.18) contrast(1.02)}
+.venue .body{padding:1.2rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.venue .cap{font-family:var(--display);font-size:2.4rem;line-height:1;color:var(--red);font-weight:500}
+.planner{margin-top:1.4rem;padding:1.6rem;display:grid;gap:1.4rem}
+@media(min-width:900px){.planner{grid-template-columns:1fr 1.1fr;padding:2rem}}
+.planner h3{font-size:2rem}
+.planner .out{font-family:var(--display);font-size:1.35rem;line-height:1.3;min-height:3.2em}
+.planner .out b{color:var(--red);font-weight:600}
+input[type=range]{width:100%;accent-color:var(--red);margin:.6rem 0}
+.guests{font-family:var(--display);font-size:4rem;line-height:1;color:var(--ink);font-weight:500}
+.guests small{font-size:1rem;font-family:var(--body);color:var(--muted);margin-left:.5rem}
+.styles{display:flex;flex-wrap:wrap;gap:.4rem}
+.styles button{border:1px solid var(--line-2);background:var(--paper);padding:.45rem .8rem;border-radius:4px;font:inherit;font-size:.85rem;cursor:pointer;color:var(--ink-2)}
+.styles button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.floor{background:var(--paper);border:1px solid var(--line-2);aspect-ratio:4/3;position:relative;overflow:hidden}
+.floor svg{width:100%;height:100%;display:block}
+.floor .lbl{position:absolute;left:.8rem;top:.6rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.floor .cnt{position:absolute;right:.8rem;bottom:.6rem;font-family:var(--display);font-size:1.1rem;color:var(--ink-2)}
+
+/* membership */
 .steps{counter-reset:s}
-.steps .card::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--display);font-size:2.2rem;color:var(--gold);line-height:1}
+.steps .card::before{counter-increment:s;content:counter(s,upper-roman);font-family:var(--display);font-size:2.4rem;color:var(--gold);line-height:1}
 .pay{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
-.pay small{color:var(--dim)}
-.event{display:grid;grid-template-columns:82px 1fr;gap:1rem;padding:1.1rem 1.2rem;border-radius:16px;align-items:center}
-.event .d{text-align:center;font-family:var(--display);line-height:1}
-.event .d b{display:block;font-size:2rem;color:var(--gold-light)}
-.event .d span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.event p{color:var(--muted);font-size:.95rem}
+.pay small{color:var(--muted)}
+
+/* century timeline: horizontal, snap */
+.century{padding:4.5rem 0 4rem;background:var(--ink);color:var(--plaster);overflow:hidden}
+.century .kicker{color:var(--gold)}
+.century .chapter .lbl{color:rgba(243,235,221,.6)}
+.century .lead{color:rgba(243,235,221,.75)}
+.rail{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:1.5rem 0 1rem;scrollbar-width:none;cursor:grab}
+.rail::-webkit-scrollbar{display:none}
+.rail article{flex:0 0 min(78vw,360px);scroll-snap-align:start;border:1px solid rgba(243,235,221,.18);padding:1.5rem;display:flex;flex-direction:column;gap:.6rem;background:rgba(243,235,221,.04);position:relative}
+.rail article::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--gold)}
+.rail .yr{font-family:var(--display);font-size:4rem;line-height:1;color:var(--gold);font-weight:400}
+.rail h3{color:var(--plaster);font-size:1.4rem}
+.rail p{color:rgba(243,235,221,.72);font-size:.95rem}
+.rail-nav{display:flex;gap:.5rem;justify-content:flex-end}
+.rail-nav button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(243,235,221,.35);background:transparent;color:var(--plaster);font-size:1.2rem;cursor:pointer}
+.rail-nav button:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+/* traditions: lanes scoreboard */
+.lanes{display:grid;gap:.5rem}
+.lane{display:grid;grid-template-columns:44px 1fr auto;gap:.8rem;align-items:center;padding:.65rem .9rem;background:var(--paper);border:1px solid var(--line)}
+.lane b{font-family:var(--display);font-size:1.5rem;color:var(--gold);font-weight:500}
+.lane .pins{display:flex;gap:3px}.lane .pins i{width:9px;height:14px;border-radius:5px 5px 3px 3px;background:var(--ink);opacity:.85}
+.lane .pins i.d{opacity:.18}
+.lane span{font-size:.85rem;color:var(--muted)}
+
+/* events */
+.event{display:grid;grid-template-columns:86px 1fr;gap:1rem;padding:1.1rem 1.2rem;align-items:center}
+.event .d{text-align:center;font-family:var(--display);line-height:1;border-right:1px solid var(--line-2);padding-right:.8rem}
+.event .d b{display:block;font-size:2.2rem;color:var(--red);font-weight:500}
+.event .d span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-family:var(--body);font-weight:600}
+.event p{color:var(--ink-2);font-size:.95rem}
 .news a{text-decoration:none}
-.news .card:hover{background:var(--surface2)}
-.news .src{font-size:.8rem;color:var(--dim)}
-.contact{display:grid;gap:1.5rem}
-@media(min-width:900px){.contact{grid-template-columns:1fr 1fr}}
+.news .card:hover{background:#fff}
+.news .src{font-size:.78rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+
+/* contact */
+.contact{display:grid;gap:1.4rem}
+@media(min-width:960px){.contact{grid-template-columns:1.05fr .95fr}}
 .form{padding:1.6rem;display:grid;gap:.9rem}
-.form label{display:grid;gap:.35rem;font-size:.85rem;color:var(--muted);font-weight:500}
-.form input,.form select,.form textarea{min-height:var(--tap);border-radius:14px;border:1px solid var(--line2);background:rgba(244,238,225,.05);color:var(--ink);padding:.7rem 1rem;font:inherit;font-size:1rem;outline:none;width:100%}
+.form label{display:grid;gap:.35rem;font-size:.82rem;color:var(--ink-2);font-weight:600;letter-spacing:.04em}
+.form input,.form select,.form textarea{min-height:var(--tap);border-radius:4px;border:1.5px solid var(--line-2);background:#fff;color:var(--ink);padding:.7rem 1rem;font:inherit;font-size:1rem;outline:none;width:100%}
 .form textarea{min-height:110px;resize:vertical}
 .form input:focus,.form select:focus,.form textarea:focus{border-color:var(--gold)}
 .form .row{display:grid;gap:.9rem}
 @media(min-width:560px){.form .row{grid-template-columns:1fr 1fr}}
 .info{display:grid;gap:1rem;align-content:start}
-.info .card a{text-decoration:none;color:var(--ink)}
-.info .card a:hover{color:var(--gold-light)}
-.map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line2);aspect-ratio:16/9;background:var(--bg2)}
-.map iframe{width:100%;height:100%;border:0;filter:grayscale(.4) contrast(1.05) invert(.92) hue-rotate(180deg)}
-footer{padding:3rem 0 4rem;border-top:1px solid var(--line);color:var(--dim);font-size:.9rem}
-footer .wrap{display:flex;flex-direction:column;gap:1.2rem}
-footer .cols{display:flex;flex-wrap:wrap;gap:1.2rem 2rem}
-footer a{text-decoration:none}
-footer a:hover{color:var(--ink)}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.info a{text-decoration:none}.info a:hover{color:var(--red)}
+.map{overflow:hidden;border:6px solid var(--paper);outline:1px solid var(--line-2);aspect-ratio:16/9;background:var(--plaster-2)}
+.map iframe{width:100%;height:100%;border:0;filter:sepia(.35) saturate(.7)}
+footer{padding:3rem 0 4rem;border-top:1px solid var(--line-2);color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-direction:column;gap:1rem}
+footer .cols{display:flex;flex-wrap:wrap;gap:1rem 1.8rem}
+footer a{text-decoration:none}footer a:hover{color:var(--ink)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-.lit{box-shadow:0 0 0 1px rgba(205,163,73,.35),0 18px 50px rgba(205,163,73,.10)}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.seal-wrap img{opacity:1;transform:none}.seal-wrap .draw{stroke-dashoffset:0}}
 </style>
 </head>
 <body class="locked">
 
 <!-- ═══ SPLASH ═══ -->
 <div class="splash" id="splash">
-  <div class="splash-ring" aria-hidden="true"></div>
   <div class="splash-in">
-    <img class="splash-logo" src="img/logo.png" alt="Venetian Social Club, 100th anniversary, 1924 to 2024" width="260" height="260">
-    <p class="eyebrow">Chestnut Hill · Philadelphia · Since 1924</p>
-    <h1 class="gold">Venetian Social Club</h1>
-    <p class="lead">Events, fundraisers, bowling nights and the centennial year, straight to your inbox.</p>
+    <div class="seal-wrap" aria-hidden="true">
+      <svg viewBox="0 0 100 100"><circle class="draw" cx="50" cy="50" r="46"/><circle class="draw" cx="50" cy="50" r="42" style="animation-delay:.5s"/><circle class="ticks" cx="50" cy="50" r="44"/></svg>
+      <img src="img/logo.png" alt="Venetian Social Club, 100th anniversary, 1924 to 2024" width="300" height="300">
+    </div>
+    <p class="roman">MCMXXIV · CHESTNUT HILL</p>
+    <h1>Venetian Social Club</h1>
+    <p class="lead">Events, fundraisers, league nights and the centennial year, sent to your inbox.</p>
     <form class="news-form" id="newsform" novalidate>
       <input type="email" id="newsemail" placeholder="Your email address" autocomplete="email" required aria-label="Email address">
-      <button class="btn gold" type="submit">Join the newsletter</button>
+      <button class="btn seal" type="submit">Join the newsletter</button>
     </form>
     <p class="thanks" id="thanks" aria-live="polite"></p>
     <a class="skip" href="#top" id="enter">Enter the club</a>
   </div>
 </div>
 
-<div class="ambient" aria-hidden="true"><div class="orb a"></div><div class="orb b"></div></div>
+<div class="terrazzo" aria-hidden="true"></div>
 
 <!-- ═══ NAV ═══ -->
 <nav class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="img/logo.png" alt="" width="40" height="40">Venetian Club</a>
+    <a class="brand" href="#top"><img src="img/logo.png" alt="" width="38" height="38">Venetian Club</a>
     <div class="nav-links">
-      <a href="#story">Our story</a><a href="#venues">Venues</a><a href="#membership">Membership</a><a href="#traditions">Traditions</a><a href="#events">Events</a><a href="#contact">Contact</a>
+      <a href="#story">The founders</a><a href="#venues">The rooms</a><a href="#membership">Membership</a><a href="#century">The century</a><a href="#traditions">Traditions</a><a href="#events">Events</a><a href="#contact">Visit</a>
     </div>
-    <a class="btn primary" href="#contact">Book the ballroom</a>
+    <a class="btn seal" href="#venues">Plan an event</a>
   </div>
 </nav>
 
 <!-- ═══ HERO ═══ -->
 <header class="hero">
+  <div class="wm" aria-hidden="true">1924</div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">8030 Germantown Avenue</p>
-      <h1>A hundred years on <span class="gold">Germantown Avenue.</span></h1>
-      <p class="lead">Founded in 1924 by the stonemasons and carpenters who built Chestnut Hill, the Venetian Social Club is still the neighborhood's living room: a private members' club, the largest and most affordable ballroom in Chestnut Hill, and two bowling lanes that have been rolling since 1930.</p>
+      <p class="kicker">8030 Germantown Avenue · Chestnut Hill</p>
+      <h1>The club the <em>stonemasons</em> built.</h1>
+      <p class="lead">In 1924 the Friulian craftsmen who cut and set the schist of Chestnut Hill's great houses built one more thing: a club of their own. A century later it is still here, with the largest and most affordable ballroom in Chestnut Hill, a fireplace room, a game room and two bowling lanes that have been rolling since 1930.</p>
       <div class="cta-row">
-        <a class="btn primary" href="#contact">Book an event</a>
+        <a class="btn seal" href="#venues">Plan an event</a>
         <a class="btn" href="#membership">Become a member</a>
       </div>
-      <div class="trust">
-        <div class="glass"><b>1924</b><span>Founded by Friulian craftsmen</span></div>
-        <div class="glass"><b>175</b><span>Seats in the Grand Ballroom</span></div>
-        <div class="glass"><b>300</b><span>Members, and no more</span></div>
-        <div class="glass"><b>2019</b><span>Chestnut Hill Conservancy Hall of Fame</span></div>
+      <div class="facts">
+        <div><b>1924</b><span>Founded by Friulian craftsmen</span></div>
+        <div><b>175</b><span>Seats in the Grand Ballroom</span></div>
+        <div><b>300</b><span>Members, and never more</span></div>
+        <div><b>2019</b><span>Conservancy Hall of Fame</span></div>
       </div>
     </div>
-    <div class="hero-art">
+    <figure class="arch">
       <img src="img/building.png" alt="The Venetian Social Club building on Germantown Avenue" width="1000" height="750">
-      <div class="cap"><b>The clubhouse</b><span>Chestnut Hill</span></div>
-    </div>
+      <figcaption class="cap"><b>The clubhouse</b><span>Est. MCMXXIV</span></figcaption>
+    </figure>
   </div>
 </header>
 
-<!-- ═══ STORY ═══ -->
+<div class="ticker" aria-hidden="true"><div>
+  <span>Est. 1924</span><span>Chestnut Hill, Philadelphia</span><span>Friuli Venezia-Giulia</span><span>Grand Ballroom · 175</span><span>Founders Room · 60</span><span>Two lanes since 1930</span><span>The Chestnut Hill Mummers</span><span>501(c)7 non-profit</span>
+  <span>Est. 1924</span><span>Chestnut Hill, Philadelphia</span><span>Friuli Venezia-Giulia</span><span>Grand Ballroom · 175</span><span>Founders Room · 60</span><span>Two lanes since 1930</span><span>The Chestnut Hill Mummers</span><span>501(c)7 non-profit</span>
+</div></div>
+
+<!-- ═══ I. THE FOUNDERS ═══ -->
 <section id="story">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Our club</p>
-      <h2>Built by the people who built the Hill.</h2>
-    </div>
+    <div class="chapter reveal"><span class="num">I</span><span class="lbl">The founders</span></div>
+    <h2 class="reveal" style="margin-bottom:2rem">Built by the people<br>who built the Hill.</h2>
     <div class="story">
       <div class="reveal" style="display:grid;gap:1.4rem">
-        <p class="big">In 1924, artisans from the Friuli Venezia-Giulia region of northern Italy, brought to Chestnut Hill to quarry, cut and set the Wissahickon schist of the Houston and Woodward homes, founded a club of their own at 8030 Germantown Avenue.</p>
-        <p class="lead">It was a bridge between the Old World and the New: a place to speak Friuliano, hear the music of home and look after one another. A century later the Venetian Social Club is a 501(c)7 non-profit, inducted into the Chestnut Hill Conservancy Hall of Fame in 2019, and still run for its members, their families and their friends.</p>
+        <p class="big">Artisans from the Friuli Venezia-Giulia region of northern Italy, stonemasons, bricklayers and carpenters, were brought to Chestnut Hill to quarry, cut and set the Wissahickon schist of the Houston and Woodward homes. In 1924 they founded a club of their own at 8030 Germantown Avenue.</p>
+        <p class="lead">It was a bridge between the Old World and the New: a place to speak Friuliano, hear the music of home and look after one another. They called it "Venetian" because their villages lay near Venice. A century on, the club is a 501(c)7 non-profit, inducted into the Chestnut Hill Conservancy Hall of Fame in 2019, and still run for its members, their families and their friends.</p>
         <p class="quote">"The Venetian Social Club provides a welcoming and enjoyable social experience for our members, their families, and friends through club activities and events. We are responsible stewards of our historic facility and heritage."</p>
-        <div>
-          <p class="eyebrow" style="margin-bottom:.6rem">Our values</p>
-          <div class="values"><span>Friendship</span><span>Family</span><span>Community</span><span>Service</span><span>Preservation</span><span>Heritage</span><span>Honesty</span><span>Dependability</span><span>Respect</span></div>
-        </div>
+        <div><p class="kicker" style="margin-bottom:.6rem">Our values</p>
+          <div class="values"><span>Friendship</span><span>Family</span><span>Community</span><span>Service</span><span>Preservation</span><span>Heritage</span><span>Honesty</span><span>Dependability</span><span>Respect</span></div></div>
       </div>
-      <div class="timeline reveal">
-        <div class="glass"><b>1924</b><p>Founded by Friulian stonemasons, bricklayers and carpenters. Called "Venetian" because their home towns lay near Venice.</p></div>
-        <div class="glass"><b>1930</b><p>Two bowling lanes built. They are still in use, with the pins still set by hand.</p></div>
-        <div class="glass"><b>2005</b><p>The Venetian New Years Association marches in its first Mummers Parade on New Year's Day.</p></div>
-        <div class="glass"><b>2019</b><p>Inducted into the Chestnut Hill Conservancy Hall of Fame.</p></div>
-        <div class="glass"><b>2024</b><p>The centennial: a year of storytelling afternoons, Friulian traditions and a September banquet.</p></div>
+      <div class="reveal" style="display:grid;gap:2rem;padding-top:1rem">
+        <figure class="photo"><img src="img/ballroom.jpg" alt="A banquet in the Grand Ballroom" width="1600" height="1067"><figcaption>The Grand Ballroom, dressed for the 90th anniversary gala.</figcaption></figure>
+        <figure class="photo b"><img src="img/members.jpg" alt="Members gathered outside the club" width="829" height="285"><figcaption>Members on the steps, Germantown Avenue.</figcaption></figure>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ VENUES ═══ -->
+<div class="wrap"><div class="hr"></div></div>
+
+<!-- ═══ II. THE ROOMS + PLANNER ═══ -->
 <section id="venues">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Rentals</p>
-      <h2>The largest, most affordable ballroom in Chestnut Hill.</h2>
-      <p class="lead">Weddings, showers, fundraisers, memorials, meetings. Every room is set up and customized for your affair, and every rental supports a hundred-year-old non-profit.</p>
+    <div class="chapter reveal"><span class="num">II</span><span class="lbl">The rooms</span></div>
+    <h2 class="reveal">The largest, most affordable<br>ballroom in Chestnut Hill.</h2>
+    <p class="lead reveal" style="margin:1rem 0 2rem">Weddings, showers, fundraisers, memorials, meetings. Every room is set and customized for your affair, and every rental keeps a hundred-year-old non-profit standing.</p>
+    <div class="venues">
+      <article class="venue paper reveal"><img src="img/ballroom.jpg" alt="The Grand Ballroom" width="1600" height="1067"><div class="body"><span class="tag">Grand Ballroom</span><span class="cap">175</span><h3>The big room</h3><p>The largest and most affordable ballroom for rent in Chestnut Hill, set up and customized for your affair.</p></div></article>
+      <article class="venue paper reveal"><img src="img/table.jpg" alt="The Founders Room table" width="1001" height="1500"><div class="body"><span class="tag">Founders Room</span><span class="cap">60</span><h3>The fireplace room</h3><p>A working fireplace and room for sixty: meetings, rehearsal dinners, showers, wakes and small weddings.</p></div></article>
+      <article class="venue paper reveal"><img src="img/members.jpg" alt="Members in the game room" width="829" height="285"><div class="body"><span class="tag">Game room and lanes</span><span class="cap">1930</span><h3>Members and guests</h3><p>Two pool tables, shuffleboard, a working Skee-Ball machine and two original bowling lanes, during club hours.</p></div></article>
     </div>
-    <div class="grid three">
-      <article class="card venue glass reveal">
-        <img src="img/ballroom.jpg" alt="The Grand Ballroom set for a banquet" width="1600" height="1067">
-        <div class="body"><span class="tag">Grand Ballroom</span><h3>Up to 175 guests</h3><p>The largest and most affordable ballroom available for rent for your next large affair, set up and customized for you.</p><div class="meta"><span>Seated 175</span><span>Full bar available</span></div></div>
-      </article>
-      <article class="card venue glass reveal">
-        <img src="img/table.jpg" alt="A place setting in the Founders Room" width="1001" height="1500">
-        <div class="body"><span class="tag">Founders Room</span><h3>Up to 60 guests</h3><p>A working fireplace and room for sixty. Host your next meeting, rehearsal dinner or social gathering comfortably.</p><div class="meta"><span>Seated 60</span><span>Working fireplace</span></div></div>
-      </article>
-      <article class="card venue glass reveal">
-        <img src="img/members.jpg" alt="Members gathered outside the club" width="829" height="285">
-        <div class="body"><span class="tag">Game Room and Lanes</span><h3>Members and guests</h3><p>Two pool tables, shuffleboard, a working Skee-Ball machine and two original 1930 bowling lanes, open during club hours to members and their guests.</p><div class="meta"><span>Pool · Shuffleboard · Skee-Ball</span></div></div>
-      </article>
+
+    <!-- THE PLANNER: a real tool, not a form. Guest count picks the room; the seating style draws the floor. -->
+    <div class="planner paper reveal" id="planner">
+      <div>
+        <p class="kicker">Plan your event</p>
+        <h3>How many guests?</h3>
+        <div class="guests"><span id="gnum">120</span><small>guests</small></div>
+        <input type="range" id="grange" min="10" max="175" value="120" step="5" aria-label="Guest count">
+        <p class="kicker" style="margin:.8rem 0 .4rem">Seating</p>
+        <div class="styles" id="styles">
+          <button class="on" data-s="rounds">Round tables</button><button data-s="banquet">Long tables</button><button data-s="theater">Theater</button><button data-s="cocktail">Cocktail</button>
+        </div>
+        <p class="out" id="out"></p>
+        <div class="cta-row"><a class="btn seal" href="#contact" id="planbook">Request this date</a><a class="btn" href="tel:+12152479858">Call (215) 247-9858</a></div>
+      </div>
+      <div class="floor"><span class="lbl" id="flbl">Grand Ballroom</span><svg id="floor" viewBox="0 0 400 300" aria-hidden="true"></svg><span class="cnt" id="fcnt"></span></div>
     </div>
-    <div class="cta-row reveal" style="margin-top:1.6rem"><a class="btn primary" href="#contact">Check a date</a><a class="btn" href="tel:+12152479858">Call (215) 247-9858</a></div>
   </div>
 </section>
 
-<!-- ═══ MEMBERSHIP ═══ -->
+<div class="wrap"><div class="hr"></div></div>
+
+<!-- ═══ III. MEMBERSHIP ═══ -->
 <section id="membership">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Membership</p>
-      <h2>Three hundred members. Two sponsors. One clubhouse.</h2>
-      <p class="lead">The Venetian Club is a private social club for the enjoyment and betterment of its membership. Membership is limited to 300 individuals and dues are paid annually.</p>
-    </div>
+    <div class="chapter reveal"><span class="num">III</span><span class="lbl">Membership</span></div>
+    <h2 class="reveal">Three hundred members.<br>Two sponsors. One clubhouse.</h2>
+    <p class="lead reveal" style="margin:1rem 0 2rem">A private social club for the enjoyment and betterment of its membership. Membership is limited to 300 individuals; dues are paid annually.</p>
     <div class="grid three steps">
-      <div class="card glass reveal"><h3>Find two sponsors</h3><p>Applicants must be sponsored by two current members in good standing. Come to an event, meet people, ask.</p></div>
-      <div class="card glass reveal"><h3>Submit your application</h3><p>Send your application with your first year's dues and a nominal application fee for consideration by the membership.</p></div>
-      <div class="card glass reveal"><h3>Join the club</h3><p>Full club hours, the bar, the game room, the lanes, and a hundred years of company. Annual dues: <span class="ph">amount to confirm</span>.</p></div>
+      <div class="card paper reveal"><h3>Find two sponsors</h3><p>Applicants must be sponsored by two current members in good standing. Come to an event, meet people, ask.</p></div>
+      <div class="card paper reveal"><h3>Submit your application</h3><p>With your first year's dues and a nominal application fee, for consideration by the membership.</p></div>
+      <div class="card paper reveal"><h3>Join the club</h3><p>Club hours, the bar, the game room, the lanes, and a hundred years of company. Annual dues: <span class="ph">amount to confirm</span>.</p></div>
     </div>
-    <div class="card glass reveal" style="margin-top:1rem">
-      <span class="tag">Current members</span>
-      <h3>Pay your dues online</h3>
-      <p>Pay your annual dues, submit a donation, or settle an outstanding invoice.</p>
-      <div class="pay">
-        <a class="btn gold" href="https://www.paypal.com/paypalme/venetianclub" target="_blank" rel="noopener">Pay with PayPal</a>
-        <a class="btn" href="https://venmo.com/TheVenetianClub" target="_blank" rel="noopener">Venmo @TheVenetianClub</a>
-        <small>PayPal link to confirm with the club treasurer</small>
-      </div>
+    <div class="card paper reveal" style="margin-top:1.1rem">
+      <span class="tag">Current members</span><h3>Pay your dues online</h3>
+      <p>Annual dues, a donation, or an outstanding invoice.</p>
+      <div class="pay"><a class="btn gold" href="https://www.paypal.com/paypalme/venetianclub" target="_blank" rel="noopener">Pay with PayPal</a><a class="btn" href="https://venmo.com/TheVenetianClub" target="_blank" rel="noopener">Venmo @TheVenetianClub</a><small>PayPal link to confirm with the treasurer</small></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ TRADITIONS ═══ -->
+<!-- ═══ IV. THE CENTURY ═══ -->
+<section class="century" id="century">
+  <div class="wrap">
+    <div class="chapter reveal"><span class="num">IV</span><span class="lbl">The century</span></div>
+    <h2 class="reveal">One hundred years, drag to read.</h2>
+    <div class="rail-nav reveal"><button id="rl" aria-label="Earlier">←</button><button id="rr" aria-label="Later">→</button></div>
+    <div class="rail" id="rail">
+      <article><span class="yr">1924</span><h3>The founding</h3><p>Friulian stonemasons, bricklayers and carpenters, lodged on Willow Grove Avenue and building the Houston and Woodward houses, open a club at 8030 Germantown Avenue on the site of the old John Gilbert school.</p></article>
+      <article><span class="yr">1930</span><h3>The lanes</h3><p>Two bowling lanes are built. They are still in use, and the pins are still set by hand.</p></article>
+      <article><span class="yr">1931</span><h3>The dinner dance</h3><p>Members and friends gather for the annual dance, the photograph the Chestnut Hill Local still runs.</p></article>
+      <article><span class="yr">2005</span><h3>The Mummers</h3><p>The Venetian New Years Association, part of the Murray Comic Club, marches in its first Mummers Parade on New Year's Day. The only club from Northwest Philly.</p></article>
+      <article><span class="yr">2014</span><h3>Ninety years</h3><p>The 90th anniversary gala fills the Grand Ballroom.</p></article>
+      <article><span class="yr">2019</span><h3>Hall of Fame</h3><p>Inducted into the Chestnut Hill Conservancy Hall of Fame.</p></article>
+      <article><span class="yr">2024</span><h3>The centennial</h3><p>A year of monthly events, from a storytelling afternoon with the founding families to Christmas in Poffabro, and a banquet in September.</p></article>
+      <article><span class="yr">Now</span><h3>Your turn</h3><p>The next hundred years are booked one wedding, one league night and one new member at a time.</p><a class="btn gold" href="#membership" style="align-self:flex-start;margin-top:.4rem">Join</a></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ V. TRADITIONS ═══ -->
 <section id="traditions">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Traditions</p>
-      <h2>Some things we have never stopped doing.</h2>
-    </div>
+    <div class="chapter reveal"><span class="num">V</span><span class="lbl">Traditions</span></div>
+    <h2 class="reveal" style="margin-bottom:2rem">Some things we have<br>never stopped doing.</h2>
     <div class="grid two">
-      <article class="card glass reveal"><span class="num">1930</span><h3>The bowling league</h3><p>Two original working lanes and ten regular teams who bowl up to six nights a week during the season. The pins are still set by hand.</p></article>
-      <article class="card glass reveal"><span class="num">2005</span><h3>The Chestnut Hill Mummers</h3><p>The Venetian New Years Association is part of the Murray Comic Club and marches every New Year's Day in the Philadelphia Mummers Parade, Comic Brigade Division. The only club representing Northwest Philly.</p></article>
-      <article class="card glass reveal"><span class="num">Friûl</span><h3>Friulian heritage</h3><p>From frico and San Nicolò to the Poffabro nativities and the Epiphany bonfires, the club keeps the customs of the founders' villages alive with talks, dinners and the centennial series.</p></article>
-      <article class="card glass reveal"><span class="num">100</span><h3>The centennial</h3><p>A year of monthly events led up to the 100th anniversary banquet in September 2024, from storytelling afternoons with the founding families to Christmas in Poffabro.</p></article>
+      <article class="card paper reveal"><span class="big">1930</span><h3>The bowling league</h3><p>Two original working lanes and ten regular teams who bowl up to six nights a week during the season. Pinsetters still set the pins by hand.</p>
+        <div class="lanes" style="margin-top:.6rem">
+          <div class="lane"><b>1</b><div class="pins"><i></i><i></i><i></i><i></i><i class="d"></i><i></i><i></i><i class="d"></i><i></i><i></i></div><span>Lane one · est. 1930</span></div>
+          <div class="lane"><b>2</b><div class="pins"><i></i><i class="d"></i><i></i><i></i><i></i><i></i><i class="d"></i><i></i><i></i><i></i></div><span>Lane two · est. 1930</span></div>
+        </div></article>
+      <article class="card paper reveal"><span class="big">2005</span><h3>The Chestnut Hill Mummers</h3><p>The Venetian New Years Association marches every New Year's Day in the Philadelphia Mummers Parade, Comic Brigade Division, with the Murray Comic Club. The only club representing Northwest Philly.</p></article>
+      <article class="card paper reveal"><span class="big">Friûl</span><h3>Friulian heritage</h3><p>Frico fried into crisp pancakes, San Nicolò on December 6th, La Befana at Epiphany, the living nativities of Poffabro. The founders' customs, kept alive with dinners, talks and the centennial series.</p></article>
+      <article class="card paper reveal"><span class="big">C</span><h3>The centennial</h3><p>A year of monthly events led to the 100th anniversary banquet in September 2024, from storytelling afternoons with the founding families to Christmas in Poffabro.</p></article>
     </div>
   </div>
 </section>
 
-<!-- ═══ EVENTS ═══ -->
+<div class="wrap"><div class="hr"></div></div>
+
+<!-- ═══ VI. EVENTS + NEWS ═══ -->
 <section id="events">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Events</p>
-      <h2>What's on at the club.</h2>
-      <p class="lead">Members' nights, league bowling, fundraisers and open events. <span class="ph">Dates below are placeholders until the club sends its calendar.</span></p>
-    </div>
+    <div class="chapter reveal"><span class="num">VI</span><span class="lbl">Events</span></div>
+    <h2 class="reveal">What's on at the club.</h2>
+    <p class="lead reveal" style="margin:1rem 0 2rem">Members' nights, league bowling, fundraisers and open events. <span class="ph">Dates are placeholders until the club sends its calendar.</span></p>
     <div class="grid two">
-      <div class="event glass reveal"><div class="d"><b>—</b><span>Date</span></div><div><h3>League bowling</h3><p>Up to six nights a week in season. Members and guests.</p></div></div>
-      <div class="event glass reveal"><div class="d"><b>—</b><span>Date</span></div><div><h3>Members' social</h3><p>Full bar, game room, the Founders Room fireplace.</p></div></div>
-      <div class="event glass reveal"><div class="d"><b>—</b><span>Date</span></div><div><h3>Friulian dinner</h3><p>Traditional food and stories from the founders' region.</p></div></div>
-      <div class="event glass reveal"><div class="d"><b>1</b><span>Jan</span></div><div><h3>Mummers Parade</h3><p>The Venetian NYA marches down Broad Street every New Year's Day.</p></div></div>
+      <div class="event paper reveal"><div class="d"><b>—</b><span>Date</span></div><div><h3>League bowling</h3><p>Up to six nights a week in season. Members and guests.</p></div></div>
+      <div class="event paper reveal"><div class="d"><b>—</b><span>Date</span></div><div><h3>Members' social</h3><p>The bar, the game room, the Founders Room fireplace.</p></div></div>
+      <div class="event paper reveal"><div class="d"><b>—</b><span>Date</span></div><div><h3>Friulian dinner</h3><p>Traditional food and stories from the founders' region.</p></div></div>
+      <div class="event paper reveal"><div class="d"><b>1</b><span>Jan</span></div><div><h3>Mummers Parade</h3><p>The Venetian NYA marches down Broad Street every New Year's Day.</p></div></div>
     </div>
-    <div class="card glass reveal" style="margin-top:1rem">
-      <span class="tag">Newsletter</span>
-      <h3>Learn more about our upcoming events, fundraisers, and more.</h3>
-      <form class="news-form" style="justify-content:flex-start" onsubmit="return subscribe(event,this)">
-        <input type="email" placeholder="Your email address" autocomplete="email" required aria-label="Email address">
-        <button class="btn gold" type="submit">Sign up</button>
-      </form>
+    <div class="card paper reveal" style="margin-top:1.1rem">
+      <span class="tag">Newsletter</span><h3>Learn more about our upcoming events, fundraisers, and more.</h3>
+      <form class="news-form" style="justify-content:flex-start" onsubmit="return subscribe(event,this)"><input type="email" placeholder="Your email address" autocomplete="email" required aria-label="Email address"><button class="btn seal" type="submit">Sign up</button></form>
     </div>
-  </div>
-</section>
-
-<!-- ═══ NEWS ═══ -->
-<section id="news" class="news">
-  <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow">In the news</p><h2>The Venetian Club in print.</h2></div>
-    <div class="grid three">
-      <a class="card glass reveal" href="https://www.chestnuthilllocal.com/stories/a-centennial-celebration-kicks-off-by-looking-back,30053" target="_blank" rel="noopener"><span class="src">The Chestnut Hill Local</span><h3>A centennial celebration kicks off by looking back</h3><p>How the founders came to the Hill, and the storytelling afternoon that opened the 100th year.</p></a>
-      <a class="card glass reveal" href="https://chestnuthilllocal.com/stories/venetian-club-celebrates-italian-christmas-traditions,30441" target="_blank" rel="noopener"><span class="src">The Chestnut Hill Local</span><h3>Christmas in Poffabro</h3><p>San Nicolò, La Befana, frico and the living nativities of the founders' villages.</p></a>
-      <a class="card glass reveal" href="https://g.page/r/CZj9Ka-iSTlQEB0/review" target="_blank" rel="noopener"><span class="src">Google</span><h3>Read our reviews, and leave one of your own</h3><p>Had an event here? Tell the next family what it was like.</p></a>
+    <div class="grid three news" style="margin-top:2.4rem">
+      <a class="card paper reveal" href="https://www.chestnuthilllocal.com/stories/a-centennial-celebration-kicks-off-by-looking-back,30053" target="_blank" rel="noopener"><span class="src">The Chestnut Hill Local</span><h3>A centennial celebration kicks off by looking back</h3><p>How the founders came to the Hill, and the storytelling afternoon that opened the 100th year.</p></a>
+      <a class="card paper reveal" href="https://chestnuthilllocal.com/stories/venetian-club-celebrates-italian-christmas-traditions,30441" target="_blank" rel="noopener"><span class="src">The Chestnut Hill Local</span><h3>Christmas in Poffabro</h3><p>San Nicolò, La Befana, frico and the living nativities of the founders' villages.</p></a>
+      <a class="card paper reveal" href="https://g.page/r/CZj9Ka-iSTlQEB0/review" target="_blank" rel="noopener"><span class="src">Google</span><h3>Read our reviews, and leave one</h3><p>Had an event here? Tell the next family what it was like.</p></a>
     </div>
   </div>
 </section>
 
-<!-- ═══ CONTACT ═══ -->
+<div class="wrap"><div class="hr"></div></div>
+
+<!-- ═══ VII. VISIT ═══ -->
 <section id="contact">
   <div class="wrap">
-    <div class="sec-head reveal"><p class="eyebrow">Bookings and hall rentals</p><h2>Tell us about your date.</h2><p class="lead">We will come back to you with availability for the Grand Ballroom or the Founders Room.</p></div>
+    <div class="chapter reveal"><span class="num">VII</span><span class="lbl">Visit</span></div>
+    <h2 class="reveal">Tell us about your date.</h2>
+    <p class="lead reveal" style="margin:1rem 0 2rem">We will come back with availability for the Grand Ballroom or the Founders Room.</p>
     <div class="contact">
-      <form class="form glass reveal" id="book" onsubmit="return book(event)">
+      <form class="form paper reveal" id="book" onsubmit="return book(event)">
         <div class="row"><label>Name<input name="name" required autocomplete="name"></label><label>Phone<input name="phone" type="tel" required autocomplete="tel"></label></div>
         <label>Email<input name="email" type="email" required autocomplete="email"></label>
         <div class="row">
-          <label>Room<select name="room"><option>Grand Ballroom (up to 175)</option><option>Founders Room (up to 60)</option><option>Not sure yet</option></select></label>
-          <label>Where did you hear about us?<input name="heard"></label>
+          <label>Room<select name="room" id="roomsel"><option>Grand Ballroom (up to 175)</option><option>Founders Room (up to 60)</option><option>Not sure yet</option></select></label>
+          <label>Guests<input name="guests" id="guestsin" inputmode="numeric"></label>
         </div>
+        <label>Where did you hear about us?<input name="heard"></label>
         <label>What date or dates are you interested in?<textarea name="dates" required></textarea></label>
-        <button class="btn primary" type="submit">Send the request</button>
-        <p style="font-size:.8rem;color:var(--dim)">Opens your mail app with the request filled in. <span class="ph">Destination email to confirm.</span></p>
+        <button class="btn seal" type="submit">Send the request</button>
+        <p style="font-size:.8rem;color:var(--muted)">Opens your mail app with the request filled in. <span class="ph">Destination email to confirm.</span></p>
       </form>
       <div class="info">
-        <div class="card glass reveal"><span class="tag">Visit</span><h3>8030 Germantown Avenue</h3><p>Chestnut Hill, Philadelphia, PA 19118</p><p><a href="https://maps.google.com/?q=8030+Germantown+Avenue+Philadelphia+PA+19118" target="_blank" rel="noopener">Get directions →</a></p></div>
-        <div class="card glass reveal"><span class="tag">Call</span><h3><a href="tel:+12152479858">(215) 247-9858</a></h3><p>Club hours: <span class="ph">to confirm with the club</span></p></div>
+        <div class="card paper reveal"><span class="tag">Visit</span><h3>8030 Germantown Avenue</h3><p>Chestnut Hill, Philadelphia, PA 19118</p><p><a href="https://maps.google.com/?q=8030+Germantown+Avenue+Philadelphia+PA+19118" target="_blank" rel="noopener">Get directions →</a></p></div>
+        <div class="card paper reveal"><span class="tag">Call</span><h3><a href="tel:+12152479858">(215) 247-9858</a></h3><p>Club hours: <span class="ph">to confirm with the club</span></p></div>
         <div class="map reveal"><iframe title="Map to the Venetian Social Club" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=8030+Germantown+Avenue,+Philadelphia,+PA+19118&output=embed"></iframe></div>
       </div>
     </div>
@@ -395,17 +474,14 @@ footer a:hover{color:var(--ink)}
 
 <footer>
   <div class="wrap">
-    <div class="cols">
-      <a href="#story">Our story</a><a href="#venues">Venues</a><a href="#membership">Membership</a><a href="#traditions">Traditions</a><a href="#events">Events</a><a href="#news">News</a><a href="#contact">Contact</a><a href="https://www.twitter.com/thevclub" target="_blank" rel="noopener">Twitter</a>
-    </div>
+    <div class="cols"><a href="#story">The founders</a><a href="#venues">The rooms</a><a href="#membership">Membership</a><a href="#century">The century</a><a href="#traditions">Traditions</a><a href="#events">Events</a><a href="#contact">Visit</a><a href="https://www.twitter.com/thevclub" target="_blank" rel="noopener">Twitter</a></div>
     <p>Venetian Social Club is a 501(c)7 non-profit social organization. 8030 Germantown Avenue, Philadelphia, PA 19118 · (215) 247-9858</p>
     <p>© <span id="yr"></span> Venetian Social Club. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-/* THE SPLASH. Shown once per visit; the newsletter goes out as a mail to the club until a list
-   provider is wired in (placeholder). "Enter the club" or a successful signup dismisses it. */
+/* THE SPLASH. Once per visit. The newsletter is a mailto to the club until a list provider is wired in. */
 const NEWS_TO = "info@venetianclub.org";   // PLACEHOLDER - confirm with the club
 const BOOK_TO = "info@venetianclub.org";   // PLACEHOLDER - confirm with the club
 const splash = document.getElementById("splash");
@@ -415,7 +491,7 @@ document.getElementById("enter").addEventListener("click", e => { e.preventDefau
 function subscribe(e, form){
   e.preventDefault();
   const input = form.querySelector("input[type=email]"); const v = input.value.trim();
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) { input.focus(); input.style.borderColor = "#C33440"; return false; }
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) { input.focus(); input.style.borderColor = "#9E1B22"; return false; }
   window.location.href = `mailto:${NEWS_TO}?subject=${encodeURIComponent("Newsletter signup")}&body=${encodeURIComponent("Please add me to the Venetian Social Club newsletter: " + v)}`;
   const t = document.getElementById("thanks"); if (t) t.textContent = "Grazie. You're on the list.";
   form.reset(); setTimeout(dismiss, 900); return false;
@@ -423,15 +499,76 @@ function subscribe(e, form){
 document.getElementById("newsform").addEventListener("submit", e => subscribe(e, e.target));
 function book(e){
   e.preventDefault(); const f = new FormData(e.target); const a = Object.fromEntries(f.entries());
-  const body = `Name: ${a.name}\nPhone: ${a.phone}\nEmail: ${a.email}\nRoom: ${a.room}\nHeard about us: ${a.heard}\nDates: ${a.dates}`;
+  const body = `Name: ${a.name}\nPhone: ${a.phone}\nEmail: ${a.email}\nRoom: ${a.room}\nGuests: ${a.guests}\nHeard about us: ${a.heard}\nDates: ${a.dates}`;
   window.location.href = `mailto:${BOOK_TO}?subject=${encodeURIComponent("Hall rental request - " + a.name)}&body=${encodeURIComponent(body)}`;
   return false;
 }
-/* reveal on scroll, and the gold glow follows the section in view (phones have no hover) */
-const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("in"); } }), { threshold: .12 });
+
+/* THE PLANNER. Capacities from the club's own site: Founders Room 60, Grand Ballroom 175 seated.
+   Seating styles scale those: rounds of ten = seated capacity; long tables about the same; theater rows
+   ~1.3x; cocktail standing ~1.5x. The floor plan is DRAWN, not a picture. */
+const ROOMS = {
+  founders: { name: "Founders Room", seated: 60, note: "a working fireplace and room for sixty" },
+  ballroom: { name: "Grand Ballroom", seated: 175, note: "the largest ballroom in Chestnut Hill" },
+};
+const STYLE = { rounds: 1.0, banquet: 1.0, theater: 1.3, cocktail: 1.5 };
+let style = "rounds";
+const grange = document.getElementById("grange"), gnum = document.getElementById("gnum"), out = document.getElementById("out"),
+      floor = document.getElementById("floor"), flbl = document.getElementById("flbl"), fcnt = document.getElementById("fcnt");
+function pick(n){ return n <= Math.floor(ROOMS.founders.seated * STYLE[style]) ? "founders" : "ballroom"; }
+function draw(){
+  const n = +grange.value; gnum.textContent = n;
+  const key = pick(n), r = ROOMS[key]; const cap = Math.floor(r.seated * STYLE[style]);
+  const over = n > cap;
+  flbl.textContent = r.name; fcnt.textContent = over ? `over capacity (${cap})` : `${n} of ${cap}`;
+  const styleName = { rounds: "round tables of ten", banquet: "long banquet tables", theater: "theater rows", cocktail: "a standing cocktail reception" }[style];
+  out.innerHTML = over
+    ? `<b>${n} guests</b> is more than the Grand Ballroom holds for ${styleName} (${cap}). Try cocktail style, or call us.`
+    : `<b>${n} guests</b> with ${styleName} fits the <b>${r.name}</b>, ${r.note}.${key === "founders" ? " The Grand Ballroom is there if you want the space." : ""}`;
+  document.getElementById("roomsel").value = key === "founders" ? "Founders Room (up to 60)" : "Grand Ballroom (up to 175)";
+  document.getElementById("guestsin").value = n;
+  let s = `<rect x="0" y="0" width="400" height="300" fill="#FBF6EC"/><rect x="20" y="20" width="360" height="260" fill="none" stroke="#1C1A17" stroke-width="2"/>`;
+  s += key === "founders" ? `<rect x="170" y="14" width="60" height="12" fill="#9E1B22"/><text x="200" y="12" font-size="9" text-anchor="middle" fill="#7A7264" font-family="Inter Tight, sans-serif" letter-spacing="1">FIREPLACE</text>`
+                          : `<rect x="20" y="230" width="360" height="50" fill="rgba(184,137,43,.14)"/><text x="200" y="260" font-size="10" text-anchor="middle" fill="#8F6A1F" font-family="Inter Tight, sans-serif" letter-spacing="2">DANCE FLOOR · STAGE</text>`;
+  const areaH = key === "founders" ? 260 : 200;
+  if (style === "rounds") {
+    const tables = Math.max(1, Math.ceil(n / 10)); const cols = Math.ceil(Math.sqrt(tables * 360 / areaH)); const rows = Math.ceil(tables / cols);
+    const cw = 360 / cols, ch = areaH / rows; const rad = Math.min(cw, ch) * 0.28;
+    for (let i = 0; i < tables; i++) { const cx = 20 + cw * (i % cols) + cw / 2, cy = 20 + ch * Math.floor(i / cols) + ch / 2;
+      s += `<circle cx="${cx}" cy="${cy}" r="${rad}" fill="#fff" stroke="#1C1A17" stroke-width="1.5"/>`;
+      for (let k = 0; k < 10; k++) { const a = k / 10 * Math.PI * 2; s += `<circle cx="${cx + Math.cos(a) * (rad + 5)}" cy="${cy + Math.sin(a) * (rad + 5)}" r="2.2" fill="#9E1B22"/>`; } }
+  } else if (style === "banquet") {
+    const tables = Math.max(1, Math.ceil(n / 16)); const cols = Math.min(3, tables); const rows = Math.ceil(tables / cols);
+    const cw = 360 / cols, ch = areaH / rows;
+    for (let i = 0; i < tables; i++) { const x = 20 + cw * (i % cols) + cw * 0.15, y = 20 + ch * Math.floor(i / cols) + ch * 0.35, w = cw * 0.7, h = Math.min(22, ch * 0.3);
+      s += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#fff" stroke="#1C1A17" stroke-width="1.5"/>`;
+      for (let k = 0; k < 8; k++) { const px = x + w * (k + .5) / 8; s += `<circle cx="${px}" cy="${y - 5}" r="2.2" fill="#9E1B22"/><circle cx="${px}" cy="${y + h + 5}" r="2.2" fill="#9E1B22"/>`; } }
+  } else if (style === "theater") {
+    const perRow = 14; const rows = Math.max(1, Math.ceil(n / perRow)); const gap = Math.min(16, (areaH - 20) / rows);
+    for (let r2 = 0; r2 < rows; r2++) for (let k = 0; k < perRow; k++) { if (r2 * perRow + k >= n) break; s += `<rect x="${40 + k * 23}" y="${30 + r2 * gap}" width="14" height="8" rx="2" fill="#9E1B22"/>`; }
+  } else {
+    const hi = Math.max(1, Math.ceil(n / 6)); for (let i = 0; i < hi; i++) { const cx = 40 + (i % 8) * 46, cy = 60 + Math.floor(i / 8) * 50; if (cy > areaH) break;
+      s += `<circle cx="${cx}" cy="${cy}" r="8" fill="#fff" stroke="#1C1A17" stroke-width="1.5"/>`;
+      for (let k = 0; k < 4; k++) { const a = k / 4 * Math.PI * 2 + .6; s += `<circle cx="${cx + Math.cos(a) * 15}" cy="${cy + Math.sin(a) * 15}" r="2.2" fill="#9E1B22"/>`; } }
+    s += `<rect x="24" y="24" width="120" height="14" fill="#1C1A17"/><text x="84" y="34" font-size="8" text-anchor="middle" fill="#FBF6EC" font-family="Inter Tight, sans-serif" letter-spacing="2">BAR</text>`;
+  }
+  floor.innerHTML = s;
+}
+grange.addEventListener("input", draw);
+document.getElementById("styles").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; style = b.dataset.s; document.querySelectorAll("#styles button").forEach(x => x.classList.toggle("on", x === b)); draw(); });
+draw();
+
+/* the century rail */
+const rail = document.getElementById("rail");
+document.getElementById("rl").onclick = () => rail.scrollBy({ left: -380, behavior: "smooth" });
+document.getElementById("rr").onclick = () => rail.scrollBy({ left: 380, behavior: "smooth" });
+let drag = null; rail.addEventListener("pointerdown", e => { drag = { x: e.clientX, s: rail.scrollLeft }; });
+window.addEventListener("pointermove", e => { if (drag) rail.scrollLeft = drag.s - (e.clientX - drag.x); });
+window.addEventListener("pointerup", () => drag = null);
+
+/* reveal on scroll */
+const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) x.target.classList.add("in"); }), { threshold: .1 });
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-const lit = new IntersectionObserver(es => es.forEach(x => x.target.classList.toggle("lit", x.isIntersecting)), { rootMargin: "-40% 0px -40% 0px" });
-document.querySelectorAll(".card.glass, .event.glass").forEach(el => lit.observe(el));
 document.getElementById("yr").textContent = new Date().getFullYear();
 </script>
 </body>
