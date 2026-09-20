@@ -357,6 +357,23 @@ section:not(.dark){position:relative}
 .acc .btn{justify-self:start}
 .mem-pay{font-size:.9rem;color:rgba(245,241,232,.7)}
 @media(max-width:759px){.acc-item summary{grid-template-columns:40px 1fr 24px;padding:1.1rem 0}.acc-item .n,.acc-item .t{font-size:1.35rem}.acc-body{padding-left:0}}
+
+/* ═══ SECTION TRANSITIONS. Every section is a card that slides up over the one before it: sticky
+   stacking with a rounded top edge and a shadow, so a scroll reads as one panel gliding over another
+   instead of a hard colour cut. Dark sections fade their ground in as they arrive (scroll-driven via a
+   class the observer sets). Photo bands parallax by translating their background on scroll. ═══ */
+main{display:block}
+.card-sec{position:relative;z-index:1;border-radius:34px 34px 0 0;box-shadow:0 -24px 60px -30px rgba(28,26,23,.45);margin-top:-34px;padding-top:calc(4.5rem + 34px)!important}
+.card-sec.dark{box-shadow:0 -24px 60px -20px rgba(0,0,0,.6)}
+.card-sec:not(.dark){background:var(--cream)}
+.card-sec.flush{padding-top:34px!important}
+.card-sec.arrive{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.card-sec.arrive.here{opacity:1;transform:none}
+.dark.card-sec::before,.dark.card-sec::after{display:none}
+.band{border-radius:34px 34px 0 0;margin-top:-34px;position:relative;z-index:1;box-shadow:0 -24px 60px -30px rgba(28,26,23,.45);overflow:hidden}
+.band .par{position:absolute;inset:-18% 0;background-size:cover;background-position:center;will-change:transform}
+footer{position:relative;z-index:1;border-radius:34px 34px 0 0;margin-top:-34px;padding-top:calc(4rem + 34px)}
+@media(max-width:759px){.card-sec{border-radius:24px 24px 0 0;margin-top:-24px;padding-top:calc(3.4rem + 24px)!important}.card-sec.flush{padding-top:24px!important}.band,footer{border-radius:24px 24px 0 0;margin-top:-24px}footer{padding-top:calc(3.5rem + 24px)}}
 </style>
 </head>
 <body class="locked">
@@ -409,7 +426,7 @@ section:not(.dark){position:relative}
 </header>
 
 <!-- HERITAGE -->
-<section id="story">
+<section id="story" class="card-sec arrive">
   <div class="narrow block reveal">
     <span class="divider">✦</span>
     <p class="caps gold">Heritage</p>
@@ -419,10 +436,10 @@ section:not(.dark){position:relative}
   </div>
 </section>
 
-<div class="band" style="background-image:url(img/ballroom.jpg)"><p class="cap">The Grand Ballroom, dressed for the 90th anniversary gala</p></div>
+<div class="band"><div class="par" style="background-image:url(img/ballroom.jpg)"></div><p class="cap">The Grand Ballroom, dressed for the 90th anniversary gala</p></div>
 
 <!-- MISSION -->
-<section class="dark">
+<section class="dark card-sec arrive">
   <div class="narrow block reveal">
     <span class="divider">✦</span>
     <p class="caps gold">Our mission</p>
@@ -432,7 +449,7 @@ section:not(.dark){position:relative}
 </section>
 
 <!-- THE ROOMS -->
-<section id="rooms">
+<section id="rooms" class="card-sec arrive">
   <div class="wrap">
     <div class="narrow block reveal" style="margin-bottom:3rem">
       <span class="divider">✦</span>
@@ -465,7 +482,7 @@ section:not(.dark){position:relative}
 
 
 <!-- MEMBERSHIP -->
-<section id="membership" class="dark">
+<section id="membership" class="dark card-sec arrive">
   <div class="wrap">
     <div class="narrow block reveal" style="margin-bottom:2.4rem">
       <span class="divider">✦</span>
@@ -511,7 +528,7 @@ section:not(.dark){position:relative}
 </section>
 
 <!-- TRADITIONS -->
-<section class="dark" id="traditions" style="padding:0">
+<section class="dark card-sec flush arrive" id="traditions" style="padding:0">
   <div class="split">
     <div class="split-img" style="background-image:url(img/friuli-flag.jpg)"><span class="caps">The flag of Friuli, the founders' region</span></div>
     <div class="split-body reveal">
@@ -528,7 +545,7 @@ section:not(.dark){position:relative}
 </section>
 
 <!-- EVENTS -->
-<section id="events">
+<section id="events" class="card-sec arrive">
   <div class="wrap">
     <div class="narrow block reveal" style="margin-bottom:2.4rem">
       <span class="divider">✦</span>
@@ -546,7 +563,7 @@ section:not(.dark){position:relative}
   </div>
 </section>
 
-<section class="dark newsband">
+<section class="dark newsband card-sec arrive">
   <div class="narrow block reveal">
     <p class="caps gold">Newsletter</p>
     <h2 style="font-size:clamp(1.7rem,4vw,2.4rem)">Learn more about our upcoming events, fundraisers, and more.</h2>
@@ -554,7 +571,7 @@ section:not(.dark){position:relative}
   </div>
 </section>
 
-<section id="press">
+<section id="press" class="card-sec arrive">
   <div class="wrap">
     <div class="narrow block reveal" style="margin-bottom:2.4rem">
       <span class="divider">✦</span>
@@ -571,7 +588,7 @@ section:not(.dark){position:relative}
 </section>
 
 <!-- VISIT -->
-<section id="contact" style="padding:0">
+<section id="contact" class="card-sec flush arrive" style="padding:0">
   <div class="split visit">
     <div class="split-body dark reveal">
       <span class="divider">✦</span>
@@ -738,6 +755,13 @@ document.querySelectorAll("h2").forEach(h => {
   h.innerHTML = parts.map(line => line.trim().split(/\s+/).filter(Boolean).map(w => `<span class="h2w"><i data-w="${w.replace(/"/g,"&quot;")}">${w}</i></span>`).join(" ")).join("<br>");
   h.querySelectorAll(".h2w i").forEach((el, k) => el.style.setProperty("--i", k));
 });
+
+/* section arrival + parallax bands */
+const arr = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) x.target.classList.add("here"); }), { threshold: .06 });
+document.querySelectorAll(".card-sec.arrive").forEach(el => arr.observe(el));
+const pars = [...document.querySelectorAll(".band .par")];
+function par(){ const vh = innerHeight; for (const el of pars) { const r = el.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) continue; const p = (r.top + r.height / 2 - vh / 2) / vh; el.style.transform = `translateY(${(p * -60).toFixed(1)}px)`; } }
+addEventListener("scroll", par, { passive: true }); par();
 const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) x.target.classList.add("in"); }), { threshold: .1 });
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 document.getElementById("yr").textContent = new Date().getFullYear();
