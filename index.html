@@ -374,6 +374,13 @@ main{display:block}
 .band .par{position:absolute;inset:-18% 0;background-size:cover;background-position:center;will-change:transform}
 footer{position:relative;z-index:1;border-radius:34px 34px 0 0;margin-top:-34px;padding-top:calc(4rem + 34px)}
 @media(max-width:759px){.card-sec{border-radius:24px 24px 0 0;margin-top:-24px;padding-top:calc(3.4rem + 24px)!important}.card-sec.flush{padding-top:24px!important}.band,footer{border-radius:24px 24px 0 0;margin-top:-24px}footer{padding-top:calc(3.5rem + 24px)}}
+
+/* horizontal rails: sideways only. overflow-y hidden, touch-action pan-x (the page still scrolls vertically
+   when the finger starts outside the rail), and a fixed row height so nothing inside can grow the box. */
+@media(max-width:759px){
+  .tiles,.press,.steps,.cal{overflow-y:hidden;touch-action:pan-x;overscroll-behavior-x:contain;align-items:stretch}
+  .tiles .tile,.press a,.cal .ev{height:auto}
+}
 </style>
 </head>
 <body class="locked">
