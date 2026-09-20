@@ -381,6 +381,14 @@ footer{position:relative;z-index:1;border-radius:34px 34px 0 0;margin-top:-34px;
   .tiles,.press,.steps,.cal{overflow-y:hidden;touch-action:pan-x;overscroll-behavior-x:contain;align-items:stretch}
   .tiles .tile,.press a,.cal .ev{height:auto}
 }
+
+/* nothing under 11px: the date tiles, rail links and labels were 9.9-10.6px on a phone */
+.ev .date span{font-size:.7rem}
+.ev-body a{font-size:.72rem}
+.press .more{font-size:.72rem}
+.swipe-hint{font-size:.72rem}
+.floor .lbl{font-size:.7rem}
+.caps{font-size:.76rem}
 </style>
 </head>
 <body class="locked">
@@ -464,10 +472,10 @@ footer{position:relative;z-index:1;border-radius:34px 34px 0 0;margin-top:-34px;
       <h2>The largest, most affordable ballroom in Chestnut Hill.</h2>
       <p class="lead">Weddings, showers, fundraisers, memorials, meetings. Every room is set up and customized for your affair.</p>
     </div>
-    <div class="tiles">
-      <a class="tile reveal" href="#planner"><img src="img/ballroom.jpg" alt="The Grand Ballroom" width="1600" height="1067"><span class="caps">Grand Ballroom</span><h3>Up to 175 guests</h3><p>The largest and most affordable ballroom available for rent for your next large affair.</p></a>
-      <a class="tile reveal" href="#planner"><img src="img/table.jpg" alt="The Founders Room" width="1001" height="1500"><span class="caps">Founders Room</span><h3>Up to 60 guests</h3><p>A working fireplace. Meetings, rehearsal dinners, showers and small gatherings.</p></a>
-      <a class="tile reveal" href="#membership"><img src="img/members.jpg" alt="Members outside the club" width="829" height="285"><span class="caps">Game room and lanes</span><h3>Members and guests</h3><p>Two pool tables, shuffleboard, a working Skee-Ball machine and two original 1930 bowling lanes.</p></a>
+    <div class="tiles reveal">
+      <a class="tile" href="#planner"><img src="img/ballroom.jpg" alt="The Grand Ballroom" width="1600" height="1067"><span class="caps">Grand Ballroom</span><h3>Up to 175 guests</h3><p>The largest and most affordable ballroom available for rent for your next large affair.</p></a>
+      <a class="tile" href="#planner"><img src="img/table.jpg" alt="The Founders Room" width="1001" height="1500"><span class="caps">Founders Room</span><h3>Up to 60 guests</h3><p>A working fireplace. Meetings, rehearsal dinners, showers and small gatherings.</p></a>
+      <a class="tile" href="#membership"><img src="img/members.jpg" alt="Members outside the club" width="829" height="285"><span class="caps">Game room and lanes</span><h3>Members and guests</h3><p>Two pool tables, shuffleboard, a working Skee-Ball machine and two original 1930 bowling lanes.</p></a>
     </div>
     <span class="swipe-hint">Swipe →</span>
 
