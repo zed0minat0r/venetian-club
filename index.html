@@ -136,7 +136,7 @@ section{padding:5.5rem 0}
 
 /* full-bleed photograph with a caption */
 .band{position:relative;height:min(70vh,640px);min-height:380px;background-size:cover;background-position:center;background-attachment:scroll}
-.band .cap{position:absolute;left:0;right:0;bottom:0;padding:1.4rem;background:linear-gradient(transparent,rgba(20,19,18,.75));color:var(--cream);text-align:center;font-family:var(--display);font-style:italic;font-size:1.3rem}
+.band .cap{position:absolute;left:0;right:0;bottom:0;padding:1.4rem 1.4rem calc(1.4rem + 34px);background:linear-gradient(transparent,rgba(20,19,18,.75));color:var(--cream);text-align:center;font-family:var(--display);font-style:italic;font-size:1.3rem}
 
 /* tiles: photograph, label, one line. The Union League's grid. */
 .tiles{display:grid;gap:1.6rem}
@@ -363,16 +363,18 @@ section:not(.dark){position:relative}
    instead of a hard colour cut. Dark sections fade their ground in as they arrive (scroll-driven via a
    class the observer sets). Photo bands parallax by translating their background on scroll. ═══ */
 main{display:block}
-.card-sec{position:relative;z-index:1;border-radius:34px 34px 0 0;box-shadow:0 -24px 60px -30px rgba(28,26,23,.45);margin-top:-34px;padding-top:calc(4.5rem + 34px)!important}
+.card-sec{position:relative;z-index:1;border-radius:34px 34px 0 0;box-shadow:0 -24px 60px -30px rgba(28,26,23,.45);margin-top:-34px;padding-top:calc(4.5rem + 34px)!important;padding-bottom:calc(4.5rem + 34px + 34px + 14px)!important}
+/* the next card hides this one's last 34px (24 on phone), so bottom padding = top padding + that overlap: the visible
+   space above the first line and below the last line is the same (+14px = the ornament's own top offset) */
 .card-sec.dark{box-shadow:0 -24px 60px -20px rgba(0,0,0,.6)}
 .card-sec:not(.dark){background:var(--cream)}
-.card-sec.flush{padding-top:34px!important}
+.card-sec.flush{padding-top:34px!important;padding-bottom:34px!important}
 /* sections do not animate in: the rounded edge is part of the layout, always present (Matt 2026-09-21) */
 .dark.card-sec::before,.dark.card-sec::after{display:none}
 .band{border-radius:34px 34px 0 0;margin-top:-34px;position:relative;z-index:1;box-shadow:0 -24px 60px -30px rgba(28,26,23,.45);overflow:hidden}
 .band .par{position:absolute;inset:-18% 0;background-size:cover;background-position:center;will-change:transform}
 footer{position:relative;z-index:1;border-radius:34px 34px 0 0;margin-top:-34px;padding-top:calc(4rem + 34px)}
-@media(max-width:759px){.hero .dots{bottom:calc(24px + 1.5rem)}.card-sec{border-radius:24px 24px 0 0;margin-top:-24px;padding-top:calc(3.4rem + 24px)!important}.card-sec.flush{padding-top:24px!important}.band,footer{border-radius:24px 24px 0 0;margin-top:-24px}footer{padding-top:calc(3.5rem + 24px)}}
+@media(max-width:759px){.hero .dots{bottom:calc(24px + 1.5rem)}.band .cap{padding-bottom:calc(1.2rem + 24px)}.card-sec{border-radius:24px 24px 0 0;margin-top:-24px;padding-top:calc(3.4rem + 24px)!important;padding-bottom:calc(3.4rem + 24px + 24px + 14px)!important}.card-sec.flush{padding-top:24px!important;padding-bottom:24px!important}.band,footer{border-radius:24px 24px 0 0;margin-top:-24px}footer{padding-top:calc(3.5rem + 24px)}}
 
 /* horizontal rails: sideways only. overflow-y hidden, touch-action pan-x (the page still scrolls vertically
    when the finger starts outside the rail), and a fixed row height so nothing inside can grow the box. */
